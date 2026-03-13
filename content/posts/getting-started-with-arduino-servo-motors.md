@@ -66,8 +66,7 @@ void loop() {
     delay(15);
   }
 }
-```
-
+```python
 Upload this sketch, and your servo should sweep smoothly from one extreme to the other.
 
 ## Understanding PWM and Servo Control
@@ -104,8 +103,7 @@ void loop() {
   tiltServo.write(90);
   delay(1000);
 }
-```
-
+```python
 ## Common Issues and Solutions
 
 ### Servo Jittering
@@ -122,8 +120,7 @@ Some servos don't respond to the standard 1-2ms pulse range. Use `attach()` with
 
 ```cpp
 myServo.attach(9, 500, 2500);  // Extended range
-```
-
+```python
 ## Practical Project: Simple Robotic Gripper
 
 Let's build something useful. A two-servo gripper uses one servo for the grip and another for wrist rotation:

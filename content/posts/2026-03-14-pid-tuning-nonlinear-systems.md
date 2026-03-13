@@ -138,8 +138,7 @@ class SystemDiagnostics:
                               / len(corresponding_outputs)) ** 2 
                              for o in corresponding_outputs) / len(corresponding_outputs)
         return output_variance < 0.01  # Low variance = dead zone present
-```
-
+```cpp
 Call `log_sample()` from your control loop at fixed intervals. After your five-minute test, run `detect_saturation()` and `detect_dead_zone()` to quantify the nonlinearities. Export the deques to a CSV for manual inspection of transient shapes and asymmetries.
 
 ### What You've Learned, What Comes Next
@@ -219,8 +218,7 @@ class GainScheduler:
                                    kd_new - self.current_kd))
         
         return self.current_kp, self.current_ki, self.current_kd
-```
-
+```python
 ### Practical Takeaway
 
 Before deploying gain scheduling, validate stability at all table boundaries under realistic disturbances. A parameter that works perfectly at nominal load 50 may oscillate dangerously at load 49 if interpolation introduces unintended phase lag. Run closed-loop simulations across your entire operating envelope, not just at table points.
@@ -300,8 +298,7 @@ class AdaptivePIDEstimator:
                     self.peak_ratio_buffer.clear()
         
         return self.kp, self.ki, self.kd
-```
-
+```cpp
 ### Real-World Validation
 
 In a thermal process with 40% load variation over 5 minutes, adaptive tuning reduced mean squared error by 28% versus fixed gains. The relay probe ran every 300 cycles; bounds checking prevented gain drift beyond safe operating margins. The key was patience—adaptation triggered only after sustained error deviation, not on every noisy sample.
@@ -384,8 +381,7 @@ class PIDWithAntiWindup:
             self.integral = 0.0
         
         return clamped_output
-```
-
+```python
 **Key mechanics:**
 - Integral accumulation only occurs when error magnitude stays below the deadband threshold, preventing wind-up during large transients
 - Saturation detection triggers integral reset, eliminating overshoot when the actuator regains authority

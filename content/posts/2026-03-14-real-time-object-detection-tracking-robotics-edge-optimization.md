@@ -96,8 +96,7 @@ For robotics specifically, choose architectures based on your hardware: CPU-cons
 # Pseudo-code for post-training quantization
 quantized_weights = np.round(original_weights * 127).astype(np.int8)
 scale_factor = np.max(np.abs(original_weights)) / 127
-```
-
+```python
 **Knowledge Distillation** transfers learned patterns from larger teacher models to compact student networks through soft probability matching, preserving accuracy while reducing computational overhead.
 
 ### Accuracy-Size Trade-off Evaluation
@@ -128,8 +127,7 @@ class EdgeDetectionPipeline:
         filtered = self.apply_confidence_filter(detections)
         final = self.apply_nms(filtered)
         return final
-```
-
+```python
 ### Parameter Tuning Strategy
 
 **Confidence thresholds** act as gatekeepers—higher values reduce false positives but may miss valid objects. Start at 0.45 and adjust based on your application's tolerance for missed detections.
@@ -168,8 +166,7 @@ def predict_position(previous_pos, velocity, frame_delta):
     predicted_x = previous_pos[0] + (velocity[0] * frame_delta)
     predicted_y = previous_pos[1] + (velocity[1] * frame_delta)
     return (predicted_x, predicted_y)
-```
-
+```python
 This synergy between detection, tracking, and prediction creates efficient pipelines essential for edge deployment.
 
 ## 7. Optimization Techniques for Edge Inference
@@ -187,8 +184,7 @@ def preprocess_frame(frame, target_size=(416, 416)):
     resized = cv2.resize(frame, target_size)
     normalized = resized.astype(np.float32) / 255.0
     return np.expand_dims(normalized, 0)
-```
-
+```python
 ### Memory-Efficient Batch Processing
 
 Implement circular frame buffers that reuse allocated memory rather than creating new arrays continuously. Process frames in small batches (2-4 frames) to leverage hardware parallelization without exhausting limited RAM:
@@ -202,8 +198,7 @@ class FrameBuffer:
     def add_frame(self, frame):
         self.buffer[self.index] = frame
         self.index = (self.index + 1) % len(self.buffer)
-```
-
+```python
 ### Runtime Optimization
 
 **Operator fusion** combines consecutive operations (convolution + activation) into single kernels, reducing memory transfers. **Graph optimization** removes redundant computations and reorders operations for cache efficiency. **Kernel acceleration** delegates intensive operations to specialized processors—utilizing GPU compute units or neural accelerators when available.
@@ -236,8 +231,7 @@ def process_frame_with_metrics(frame, detector, tracker):
     stage_times['tracking'] = time.perf_counter() - start
     
     return tracked_objects, stage_times
-```
-
+```python
 ### Adaptive Frame Skipping Strategy
 
 When CPU utilization exceeds thresholds, selectively skip detection:
@@ -254,8 +248,7 @@ def adaptive_processing(frame_queue, detector, tracker, cpu_threshold=0.85):
         tracked_objects = tracker.update(detections)
     
     return tracked_objects, skip_detection
-```
-
+```python
 ### Performance Logging
 
 Log metrics to identify bottlenecks:
@@ -273,8 +266,7 @@ def log_pipeline_metrics(stage_times, frame_id):
         'stages': stage_times,
         'utilization': utilization
     })
-```
-
+```python
 This approach reveals which components consume most resources, enabling targeted optimization efforts.
 
 ## 9. Handling Latency and Throughput Trade-offs
@@ -303,8 +295,7 @@ class AdaptiveFrameProcessor:
         process = (self.frame_count % self.skip_rate) == 0
         self.frame_count += 1
         return process
-```
-
+```python
 The key is implementing predictive tracking between processed frames—using motion models to estimate object positions during skipped intervals rather than losing track entirely.
 
 ### Asynchronous Processing Patterns
@@ -338,8 +329,7 @@ class PipelineStage:
                 self.output_queue.put(result, timeout=1)
             except queue.Empty:
                 continue
-```
-
+```python
 This architecture allows frame capture to proceed independently of detection completion, preventing the entire system from stalling when one stage lags.
 
 ### Performance Monitoring in Production
@@ -373,8 +363,7 @@ class MetricsCollector:
                 (self.timestamps[-1] - self.timestamps[0]).total_seconds() + 0.001
             )
         }
-```
-
+```python
 Monitor percentile latencies rather than averages—they reveal worst-case scenarios that impact operational reliability. Track queue depths to identify where congestion accumulates, enabling targeted optimization efforts.
 
 ## 10. Multi-Object Tracking Considerations for Robotics
@@ -405,8 +394,7 @@ class MotionPredictor:
         self.velocity = [self.alpha * new_vel[i] + 
                         (1 - self.alpha) * self.velocity[i] 
                         for i in range(2)]
-```
-
+```python
 #### Data Association Strategies
 
 Data association matches detections across consecutive frames to the correct tracked objects. This prevents identity switches—a common problem where two passing robots accidentally swap identities.
@@ -433,8 +421,7 @@ def associate_detections(tracks, detections, max_distance=50):
             associations[track_id] = best_detection
     
     return associations
-```
-
+```python
 For rapid motion scenarios, incorporate **velocity-weighted matching** that accounts for expected movement patterns.
 
 #### Track Lifecycle Management
@@ -471,8 +458,7 @@ class TrackManager:
             if (track['confirmations'] >= self.confirmation_threshold 
                 and not track['active']):
                 track['active'] = True
-```
-
+```python
 This structured approach balances responsiveness with stability, essential for reliable robotic operation in unpredictable environments.
 
 ## 11. Real-World Deployment Challenges and Solutions
@@ -511,8 +497,7 @@ class ThermalAwareDetector:
     def detect(self, frame):
         # Detection implementation
         pass
-```
-
+```python
 Pair this with active cooling strategies: position devices with ventilation clearance, apply thermal paste between processors and heatsinks, and schedule intensive tasks during cooler operational windows.
 
 ### Environmental Robustness
@@ -550,8 +535,7 @@ class AdaptivePreprocessor:
         l = clahe.apply(l)
         
         return cv2.cvtColor(cv2.merge([l, a, b]), cv2.COLOR_LAB2BGR)
-```
-
+```python
 Maintain lens cleanliness protocols and position cameras to minimize direct sunlight interference. Use polarizing filters to reduce glare from reflective surfaces.
 
 ### Graceful Degradation Under Resource Constraints
@@ -597,8 +581,7 @@ class GracefulDetector:
     def run_model(self, frame, model_name):
         # Model inference implementation
         pass
-```
-
+```javascript
 This tiered approach maintains functionality across resource constraints. When CPU utilization spikes, the system automatically reduces resolution and model complexity rather than dropping frames entirely.
 
 **Key deployment principle**: Design systems that degrade gracefully across multiple dimensions—resolution, confidence thresholds, update frequency, and model complexity—rather than implementing binary operational modes.
@@ -622,8 +605,7 @@ def calculate_iou(predicted_box, ground_truth_box):
     union = (predicted_box['area'] + ground_truth_box['area'] 
              - intersection)
     return intersection / union if union > 0 else 0
-```
-
+```python
 ### Real-World Validation
 
 Laboratory benchmarks reveal potential, but field testing exposes reality. Deploy your system across varying lighting conditions, occlusions, and motion speeds to identify performance degradation patterns that controlled environments miss.
