@@ -17,6 +17,8 @@ theme = "PaperMod"
   ShowToc = true
   TocOpen = false
   comments = false
+  defaultTheme = "auto"
+  disableThemeToggle = false
 
   [params.homeInfoParams]
     Title = "TechPulse Engineering"
@@ -24,7 +26,11 @@ theme = "PaperMod"
 
   [[params.socialIcons]]
     name = "github"
-    url = "#"
+    url = "https://github.com/menaldo1234-droid"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
 
 [params.assets]
   disableFingerprinting = false
@@ -32,6 +38,28 @@ theme = "PaperMod"
 [params.cover]
   hiddenInList = false
   hiddenInSingle = false
+
+[params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  threshold = 0.4
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 20
+  [[menu.main]]
+    identifier = "archives"
+    name = "Archives"
+    url = "/archives/"
+    weight = 30
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
