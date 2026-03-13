@@ -25,10 +25,6 @@ theme = "PaperMod"
     Content = "Practical engineering guides, robotics tutorials, and technology deep-dives. From embedded systems to AI — built for engineers, by engineers."
 
   [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/menaldo1234-droid"
-
-  [[params.socialIcons]]
     name = "rss"
     url = "/index.xml"
 

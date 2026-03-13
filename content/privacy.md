@@ -11,7 +11,7 @@ ShowBreadCrumbs: false
 
 **Last updated:** March 14, 2026
 
-TechPulse Engineering ("we", "us", or "our") operates the website at techpulse-eng.menaldo1234.workers.dev.
+TechPulse Engineering ("we", "us", or "our") operates this website.
 
 ### Information We Collect
 
@@ -41,4 +41,4 @@ We may update this Privacy Policy from time to time. Changes will be posted on t
 
 ### Contact
 
-If you have questions about this Privacy Policy, contact us at [techpulse.eng.blog@gmail.com](mailto:techpulse.eng.blog@gmail.com).
+If you have questions about this Privacy Policy, please reach out through our blog.

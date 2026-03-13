@@ -27,4 +27,4 @@ We're engineers who believe in learning by building. Our content is written for 
 
 ### Contact
 
-Have questions or suggestions? Reach out at [techpulse.eng.blog@gmail.com](mailto:techpulse.eng.blog@gmail.com).
+Have questions or suggestions? Drop us a message through our blog comments or social channels.
