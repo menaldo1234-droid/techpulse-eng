@@ -6,8 +6,7 @@ slug: "pid-tuning-nonlinear-systems"
 draft: false
 author: "Henry"
 categories:
-  - "Control Systems Engineering"
-  - "Systems Design & Optimization"
+  - "Technology"
 tags:
   - "pid-control"
   - "nonlinear-systems"

@@ -6,8 +6,7 @@ slug: "open-source-llm-cost-savings"
 draft: false
 author: "Henry"
 categories:
-  - "Machine Learning & AI"
-  - "Cost Optimization"
+  - "Artificial Intelligence"
 tags:
   - "large-language-models"
   - "open-source-software"

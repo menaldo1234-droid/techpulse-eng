@@ -6,7 +6,7 @@ slug: "pid-controller-tuning-unstable-systems-guide"
 draft: false
 author: "Henry"
 categories:
-  - "Control Systems Engineering"
+  - "Technology"
 tags:
   - "PID-tuning"
   - "process-control"

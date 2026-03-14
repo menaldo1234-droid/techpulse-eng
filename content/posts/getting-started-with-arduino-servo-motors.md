@@ -3,7 +3,7 @@ title: "Getting Started with Arduino Servo Motors: A Practical Guide"
 date: 2026-03-14T08:00:00+09:00
 draft: false
 tags: ["Arduino", "Servo Motors", "Embedded Systems", "Robotics"]
-categories: ["Robotics", "Tutorials"]
+categories: ["Technology"]
 description: "Learn how to control servo motors with Arduino. This beginner-friendly guide covers wiring, code examples, and practical tips for your first robotics project."
 keywords: ["arduino servo motor", "servo motor tutorial", "arduino robotics", "SG90 servo"]
 author: "Henry"

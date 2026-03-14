@@ -6,8 +6,7 @@ slug: "open-source-llm-speed-performance"
 draft: false
 author: "Henry"
 categories:
-  - "Machine Learning & AI"
-  - "Infrastructure & DevOps"
+  - "Artificial Intelligence"
 tags:
   - "open-source-llm"
   - "language-models"

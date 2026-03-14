@@ -6,8 +6,8 @@ slug: "ai-agent-framework-microservice-orchestration"
 draft: false
 author: "Henry"
 categories:
-  - "AI & Machine Learning"
-  - "Distributed Systems & Architecture"
+  - "Artificial Intelligence"
+  - "Developer Tools"
 tags:
   - "ai-agents"
   - "microservices"

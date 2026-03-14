@@ -6,8 +6,8 @@ slug: "automate-debugging-code-agent"
 draft: false
 author: "Henry"
 categories:
-  - "Developer Tools & Productivity"
-  - "Software Engineering Practices"
+  - "Artificial Intelligence"
+  - "Developer Tools"
 tags:
   - "debugging"
   - "code-analysis"

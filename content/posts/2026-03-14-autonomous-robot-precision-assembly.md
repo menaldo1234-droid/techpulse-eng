@@ -6,8 +6,7 @@ slug: "autonomous-robot-precision-assembly"
 draft: false
 author: "Henry"
 categories:
-  - "Manufacturing & Automation"
-  - "Robotics & Engineering"
+  - "Technology"
 tags:
   - "robotic-assembly"
   - "precision-manufacturing"

@@ -6,8 +6,7 @@ slug: "devops-jobs-future-2026"
 draft: false
 author: "Henry"
 categories:
-  - "Career & Industry Trends"
-  - "DevOps & Infrastructure"
+  - "Technology"
 tags:
   - "devops"
   - "career-transitions"

@@ -6,8 +6,8 @@ slug: "ai-code-agent-feature-development"
 draft: false
 author: "Henry"
 categories:
-  - "AI & Machine Learning"
-  - "Software Development"
+  - "Artificial Intelligence"
+  - "Developer Tools"
 tags:
   - "ai-agents"
   - "code-generation"

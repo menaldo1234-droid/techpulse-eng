@@ -6,8 +6,7 @@ slug: "open-source-llm-performance-comparison"
 draft: false
 author: "Henry"
 categories:
-  - "Machine Learning & AI"
-  - "Infrastructure & DevOps"
+  - "Artificial Intelligence"
 tags:
   - "large-language-models"
   - "open-source-software"

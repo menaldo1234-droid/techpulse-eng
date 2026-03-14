@@ -6,8 +6,7 @@ slug: "open-source-llm-inference-speed"
 draft: false
 author: "Henry"
 categories:
-  - "Machine Learning & AI"
-  - "Backend Engineering"
+  - "Artificial Intelligence"
 tags:
   - "llm-inference"
   - "open-source-models"

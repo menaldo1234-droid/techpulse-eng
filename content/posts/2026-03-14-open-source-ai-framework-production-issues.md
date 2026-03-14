@@ -6,8 +6,8 @@ slug: "open-source-ai-framework-production-issues"
 draft: false
 author: "Henry"
 categories:
-  - "Software Engineering"
-  - "AI & Machine Learning"
+  - "Artificial Intelligence"
+  - "Developer Tools"
 tags:
   - "ai-frameworks"
   - "open-source-tools"

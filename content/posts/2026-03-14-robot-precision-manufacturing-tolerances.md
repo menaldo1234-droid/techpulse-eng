@@ -6,8 +6,7 @@ slug: "robot-precision-manufacturing-tolerances"
 draft: false
 author: "Henry"
 categories:
-  - "Manufacturing & Automation"
-  - "Robotics & AI"
+  - "Technology"
 tags:
   - "industrial-robotics"
   - "precision-manufacturing"

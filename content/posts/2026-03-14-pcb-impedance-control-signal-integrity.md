@@ -6,8 +6,7 @@ slug: "pcb-impedance-control-signal-integrity"
 draft: false
 author: "Henry"
 categories:
-  - "Hardware Design & PCB Engineering"
-  - "Signal Integrity & High-Speed Design"
+  - "Technology"
 tags:
   - "PCB-design"
   - "impedance-control"

@@ -6,8 +6,8 @@ slug: "open-source-ai-code-assistant-comparison"
 draft: false
 author: "Henry"
 categories:
-  - "Developer Tools & Productivity"
-  - "AI & Machine Learning"
+  - "Artificial Intelligence"
+  - "Developer Tools"
 tags:
   - "ai-code-generation"
   - "open-source-tools"

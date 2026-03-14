@@ -6,7 +6,8 @@ slug: "real-time-object-detection-tracking-robotics-edge-optimization"
 draft: false
 author: "Henry"
 categories:
-  - "Robotics & Automation"
+  - "Artificial Intelligence"
+  - "Technology"
 tags:
   - "object-detection"
   - "edge-computing"

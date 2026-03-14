@@ -6,8 +6,8 @@ slug: "automate-debugging-ai-code-agent"
 draft: false
 author: "Henry"
 categories:
-  - "Development Tools & Workflows"
-  - "AI-Assisted Engineering"
+  - "Artificial Intelligence"
+  - "Developer Tools"
 tags:
   - "debugging"
   - "ai-code-tools"

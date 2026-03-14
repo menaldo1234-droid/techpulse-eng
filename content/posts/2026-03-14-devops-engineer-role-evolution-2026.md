@@ -6,8 +6,7 @@ slug: "devops-engineer-role-evolution-2026"
 draft: false
 author: "Henry"
 categories:
-  - "Career Development"
-  - "Cloud Engineering"
+  - "Technology"
 tags:
   - "devops"
   - "platform-engineering"
