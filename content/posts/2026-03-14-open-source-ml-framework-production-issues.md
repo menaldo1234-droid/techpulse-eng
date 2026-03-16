@@ -82,7 +82,7 @@ That's not a minor optimization. That's the difference between a usable app and 
 
 You need a model registry. Load once, serve forever. Here's how I did it:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20)
+```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
 import threading
 from contextlib import contextmanager
 

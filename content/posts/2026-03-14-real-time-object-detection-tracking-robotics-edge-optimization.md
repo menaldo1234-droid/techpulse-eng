@@ -29,7 +29,7 @@ keywords:
 
 ## 1. Introduction: The Challenge of Real-Time Vision in Robotics
 
-Picture an autonomous mobile [robot](https://www.amazon.com/s?k=robot+building+kit&tag=yourtag-20) navigating a warehouse floor. A cardboard box suddenly appears in its path—but the vision system doesn't detect it until the robot has already collided. This isn't a failure of detection algorithms; it's a failure of *deployment strategy*. The sophisticated neural network running on the robot's hardware processes frames too slowly, creating a dangerous gap between perception and action.
+Picture an autonomous mobile [robot](https://www.amazon.com/s?k=robot+building+kit&tag=techblips-20) navigating a warehouse floor. A cardboard box suddenly appears in its path—but the vision system doesn't detect it until the robot has already collided. This isn't a failure of detection algorithms; it's a failure of *deployment strategy*. The sophisticated neural network running on the robot's hardware processes frames too slowly, creating a dangerous gap between perception and action.
 
 This scenario reveals robotics' fundamental computer vision paradox: advanced detection models deliver impressive accuracy but demand computational resources that edge devices simply cannot provide. Developers face an uncomfortable choice—deploy powerful algorithms that respond sluggishly, or use lightweight models that miss critical objects.
 
@@ -94,7 +94,7 @@ For robotics specifically, choose architectures based on your hardware: CPU-cons
 
 **Quantization** converts 32-bit floating-point weights to 8-bit integers, reducing model size by 75% with minimal accuracy loss:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20)
+```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
 # Pseudo-code for post-training quantization
 quantized_weights = np.round(original_weights * 127).astype(np.int8)
 scale_factor = np.max(np.abs(original_weights)) / 127
@@ -478,7 +478,7 @@ class ThermalAwareDetector:
         self.last_detection = None
     
     def get_device_temperature(self):
-        # Read thermal [sensor](https://www.amazon.com/s?k=electronic+sensor+kit&tag=yourtag-20) data
+        # Read thermal [sensor](https://www.amazon.com/s?k=electronic+sensor+kit&tag=techblips-20) data
         with open('/sys/class/thermal/thermal_zone0/temp') as f:
             return int(f.read()) / 1000
     

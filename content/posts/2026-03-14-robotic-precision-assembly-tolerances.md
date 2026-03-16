@@ -27,7 +27,7 @@ keywords:
   - "tolerance optimization in automated production"
 ---
 
-# This [Robot](https://www.amazon.com/s?k=robot+building+kit&tag=yourtag-20) Just Did Something We Thought Was Impossible — And It Changes Everything for Manufacturing
+# This [Robot](https://www.amazon.com/s?k=robot+building+kit&tag=techblips-20) Just Did Something We Thought Was Impossible — And It Changes Everything for Manufacturing
 
 ## Hook
 
@@ -45,7 +45,7 @@ Let's dig into what actually changed.
 
 You're running a production line. Parts arrive with tolerances that stack—±0.2mm here, ±0.15mm there. Material batches vary slightly. Temperature drifts. Humidity changes. Your gripper's calibration shifts by 3mm over eight hours. Traditional industrial robots? They'd stop. They'd throw errors. They'd wait for a technician.
 
-That's the real manufacturing world. Not the sterile lab demos where every part is identical and every [sensor](https://www.amazon.com/s?k=electronic+sensor+kit&tag=yourtag-20) is perfectly calibrated.
+That's the real manufacturing world. Not the sterile lab demos where every part is identical and every [sensor](https://www.amazon.com/s?k=electronic+sensor+kit&tag=techblips-20) is perfectly calibrated.
 
 For fifteen years, the bottleneck has been the same: **the perception-action loop**. A robot needs to see what's actually in front of it, decide what to do about the inevitable deviations, and execute—all fast enough that production doesn't stall. Current systems can't do this at speed. They either run deterministic programs (fast but brittle) or run vision-guided corrections (adaptive but slow—500ms to 2 seconds per decision cycle). At 60 parts per minute, you can't afford 2-second latencies.
 
@@ -59,7 +59,7 @@ The stakes are real: whoever designs these systems first owns the next generatio
 
 ## Section 1: The Constraint That Seemed Immovable
 
-Pick a manufacturing floor right now. A robot arm is gripping a precision part—a phone camera lens, a semiconductor wafer, something that costs real money. The gripper's sensors detect slip. Microseconds of movement that shouldn't happen. The gripper needs to correct immediately, tighten its grip, adjust pressure. But by the time the sensor signal travels to the processing unit, gets analyzed, and sends a command back to the [motor](https://www.amazon.com/s?k=dc+motor+driver&tag=yourtag-20) controller, 100-150 milliseconds have passed. The part is already damaged.
+Pick a manufacturing floor right now. A robot arm is gripping a precision part—a phone camera lens, a semiconductor wafer, something that costs real money. The gripper's sensors detect slip. Microseconds of movement that shouldn't happen. The gripper needs to correct immediately, tighten its grip, adjust pressure. But by the time the sensor signal travels to the processing unit, gets analyzed, and sends a command back to the [motor](https://www.amazon.com/s?k=dc+motor+driver&tag=techblips-20) controller, 100-150 milliseconds have passed. The part is already damaged.
 
 This isn't a rare edge case. It's the core constraint that's defined manufacturing automation for decades.
 
@@ -104,7 +104,7 @@ That's where the breakthrough sits. And it changes everything about what's possi
 
 Most manufacturing robots today work like this: sensors fire constantly, data streams back to a central controller, the controller thinks, and then it sends commands back out. Sounds reasonable until you realize that a 120-millisecond round trip is an eternity when you're handling something fragile. By the time your central system detects that a delicate part is slipping, it's already halfway across the gripper. You're looking at scrap rates that make accountants cry.
 
-I watched this exact failure mode during a test run last month. A robot handling flexible [electronics](https://www.amazon.com/s?k=electronics+component+kit&tag=yourtag-20) was losing parts at a 27% rate. The central controller was technically "fast," but network latency plus computation time meant slip detection happened too late. The fix? Stop sending everything to the brain.
+I watched this exact failure mode during a test run last month. A robot handling flexible [electronics](https://www.amazon.com/s?k=electronics+component+kit&tag=techblips-20) was losing parts at a 27% rate. The central controller was technically "fast," but network latency plus computation time meant slip detection happened too late. The fix? Stop sending everything to the brain.
 
 ### Embedding Intelligence at the Edge
 
@@ -119,7 +119,7 @@ The sensor fusion happens right there in the gripper too. Tactile pressure array
 Here's a real control loop running on the edge microcontroller:
 
 ```cpp
-#include <[Arduino](https://www.amazon.com/s?k=microcontroller+development+board&tag=yourtag-20).h>
+#include <[Arduino](https://www.amazon.com/s?k=microcontroller+development+board&tag=techblips-20).h>
 
 // Local gripper controller running at 1000Hz
 volatile float target_force = 2.5;  // Newtons, updated asynchronously from central system
@@ -240,7 +240,7 @@ They don't overlap. No conflicts. The gripper doesn't try to classify parts. The
 
 Instead of a message queue with guaranteed delivery, you use a time-series database (or a fast pub-sub system like Redis streams) as your coordination layer. Each component writes its current state asynchronously:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20)
+```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
 # Gripper publishes its state every 10ms
 def publish_gripper_state(db_client):
     while True:

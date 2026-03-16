@@ -130,7 +130,7 @@ Most benchmarks treat code completion like a binary pass/fail. That's useless. W
 
 **Semantic correctness** — does it actually accomplish what the surrounding context suggests? If you're completing a function that should calculate compound interest, does it actually calculate compound interest?
 
-**Idiomatic correctness** — does it follow the language and framework's conventions? Rust has specific patterns for error handling. [Python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20) has PEP 8. TypeScript has strict null checking idioms. Real code should reflect these.
+**Idiomatic correctness** — does it follow the language and framework's conventions? Rust has specific patterns for error handling. [Python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20) has PEP 8. TypeScript has strict null checking idioms. Real code should reflect these.
 
 ### What the Benchmarks Actually Show
 

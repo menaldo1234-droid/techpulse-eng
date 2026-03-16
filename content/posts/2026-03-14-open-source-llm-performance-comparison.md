@@ -109,7 +109,7 @@ That's not a marginal improvement. That's 4-10x faster.
 
 Here's a script I use to measure this. It's not fancy, but it's honest:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20)
+```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
 import time
 import requests
 import json

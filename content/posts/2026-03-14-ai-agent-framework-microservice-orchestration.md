@@ -113,7 +113,7 @@ The new standard flips this. Your agent is an **explicit state machine** with de
 
 Here's what this looks like in practice:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20)
+```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
 class ResearchAgent:
     states = {
         'initial': State(name='initial', transitions={'search': 'tool_selection'}),

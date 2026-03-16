@@ -86,7 +86,7 @@ A profiler tells you function X takes 2 seconds. That's a fact. But it doesn't k
 
 AI agents read the actual code. They understand context. They see this:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20)
+```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
 def calculate_user_metrics(user_id):
     # Fetch all user events
     events = db.query("SELECT * FROM events WHERE user_id = ?", user_id)

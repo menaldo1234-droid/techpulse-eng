@@ -27,7 +27,7 @@ keywords:
   - "layer stackup design for signal integrity"
 ---
 
-# Designing Multi-Layer [PCBs](https://www.amazon.com/s?k=pcb+prototyping+board&tag=yourtag-20) for High-Speed Digital Signals: Impedance Control and Signal Integrity Fundamentals
+# Designing Multi-Layer [PCBs](https://www.amazon.com/s?k=pcb+prototyping+board&tag=techblips-20) for High-Speed Digital Signals: Impedance Control and Signal Integrity Fundamentals
 
 ## Hook
 
@@ -114,7 +114,7 @@ Dielectric spacing between L1–L2 is typically 0.10 mm (tight coupling for low 
 
 ### Automated Impedance Calculation
 
-Rather than hand-calculating trace widths for each stackup variant, use a script to generate a design report. Here is a [Python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20) tool that accepts stackup parameters and outputs required trace widths:
+Rather than hand-calculating trace widths for each stackup variant, use a script to generate a design report. Here is a [Python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20) tool that accepts stackup parameters and outputs required trace widths:
 
 ```python
 import math

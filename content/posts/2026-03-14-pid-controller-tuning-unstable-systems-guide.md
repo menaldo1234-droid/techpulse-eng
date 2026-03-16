@@ -121,7 +121,7 @@ Begin with your system at setpoint. Gradually increase proportional gain while d
 
 ### Finding Critical Parameters
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20)
+```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
 # Pseudocode for systematic gain increment
 critical_gain_found = False
 gain_step = 0.1
@@ -257,7 +257,7 @@ optimal_gains = minimize(
 | **Accuracy** | Moderate (±15%) | Good (±8%) | Excellent (±3%) | Excellent (±2%) |
 | **Stability Guarantee** | Empirical | Proven mathematical | Guaranteed margins | Depends on cost function |
 | **Applicability** | Stable systems | General-purpose | Linear systems | Any system with simulator |
-| **Hardware Required** | [Oscilloscope](https://www.amazon.com/s?k=digital+oscilloscope&tag=yourtag-20) | Minimal | Frequency generator | Computer |
+| **Hardware Required** | [Oscilloscope](https://www.amazon.com/s?k=digital+oscilloscope&tag=techblips-20) | Minimal | Frequency generator | Computer |
 | **Disturbance Rejection** | Fair | Good | Excellent | Configurable |
 | **Overshoot Control** | Limited | Moderate | High | Precise |
 
@@ -377,7 +377,7 @@ In multi-loop systems, decouple controllers by tuning the fastest loop first, th
 
 ### System Description
 
-Consider an industrial furnace heating a chemical reactor vessel. The system exhibits inherent instability due to thermal lag between heating elements and measurement [sensors](https://www.amazon.com/s?k=electronic+sensor+kit&tag=yourtag-20), combined with nonlinear heat dissipation at elevated temperatures. Without proper control, temperature oscillates ±15°C around the 200°C setpoint, threatening product quality.
+Consider an industrial furnace heating a chemical reactor vessel. The system exhibits inherent instability due to thermal lag between heating elements and measurement [sensors](https://www.amazon.com/s?k=electronic+sensor+kit&tag=techblips-20), combined with nonlinear heat dissipation at elevated temperatures. Without proper control, temperature oscillates ±15°C around the 200°C setpoint, threatening product quality.
 
 ### Initial Conditions
 

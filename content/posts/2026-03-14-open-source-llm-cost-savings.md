@@ -91,7 +91,7 @@ I'll be specific because numbers beat vibes:
 - The same throughput with a commercial API requires three separate API calls per request, costs roughly $0.12 per request, and introduces network latency
 - At 100 req/sec, that's $432,000/month in API costs versus a one-time hardware investment and electricity
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=yourtag-20)
+```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
 # Rough math on inference cost comparison
 requests_per_second = 100
 seconds_per_month = 86400 * 30
