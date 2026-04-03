@@ -29,8 +29,6 @@ keywords:
 
 # The Open-Source LLM That's Finally Beating Proprietary Models on Speed (And It's Free)
 
-## Hook
-
 I've been running the same proprietary API calls in production for three years. Same vendor, same pricing tiers, same latency problems at 3am when everyone's online. Then last month I tested a new open-source model and got results back **40% faster** while cutting my inference costs to basically zero. That's not a marginal improvement. That's the kind of shift that makes you question why you're still paying enterprise rates.
 
 Here's what changed: the open-source community finally cracked the speed problem. For years, free models were slower but cheaper. You picked your trade-off and lived with it. Now? You're getting both speed *and* free.
@@ -109,7 +107,7 @@ That's not a marginal improvement. That's 4-10x faster.
 
 Here's a script I use to measure this. It's not fancy, but it's honest:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
+```python
 import time
 import requests
 import json
@@ -630,43 +628,5 @@ Track these four buckets:
 
 Here's the debugging anti-pattern I see constantly: assume the model forward pass is the problem. It's almost never the problem.
 
-Measure these phases independently:
-
-```python
-import time
-from collections import defaultdict
-
-class InferenceProfiler:
-    def __init__(self):
-        self.timings = defaultdict(list)
-    
-    def record(self, phase, duration_ms):
-        self.timings[phase].append(duration_ms)
-    
-    def report(self):
-        for phase, times in self.timings.items():
-            avg = sum(times) / len(times)
-            p95 = sorted(times)[int(len(times) * 0.95)]
-            print(f"{phase}: avg={avg:.1f}ms, p95={p95:.1f}ms")
-
-# Usage in your inference pipeline
-profiler = InferenceProfiler()
-
-start = time.time()
-tokens = tokenizer.encode(prompt)
-profiler.record("tokenization", (time.time() - start) * 1000)
-
-start = time.time()
-# Wait for batching queue
-time.sleep(0.01)  # Placeholder for queue wait
-profiler.record("queue_
-
 ---
 
-## Related Articles
-
-- [Getting Started with Arduino Servo Motors: A Practical Guide](/posts/getting-started-with-arduino-servo-motors/)
-- [Automate Debugging with AI Code Agent — 80% Time Saved](/posts/automate-debugging-ai-code-agent/)
-- [PID Controller Tuning for Nonlinear Systems: Practical Guide](/posts/pid-tuning-nonlinear-systems/)
-
-<!-- seo-optimized -->

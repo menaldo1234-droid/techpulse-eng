@@ -29,8 +29,6 @@ keywords:
 
 # I Just Built an App With the New Open-Source LLM Everyone's Talking About — Here's Why It Beats the Paid Models
 
-## Hook
-
 I spent three weeks building a production chatbot using a recently open-sourced model that cost me literally nothing to run. The paid alternative? $2,400 a month for the same capability. And here's the kicker — my version actually responds faster.
 
 I'm not exaggerating. I measured it.
@@ -91,7 +89,7 @@ I'll be specific because numbers beat vibes:
 - The same throughput with a commercial API requires three separate API calls per request, costs roughly $0.12 per request, and introduces network latency
 - At 100 req/sec, that's $432,000/month in API costs versus a one-time hardware investment and electricity
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
+```python
 # Rough math on inference cost comparison
 requests_per_second = 100
 seconds_per_month = 86400 * 30
@@ -589,26 +587,7 @@ Every forward pass now requires GPU-to-GPU communication. Tensor A finishes comp
 
 I've seen teams implement this and wonder why latency went *up* instead of down. The network overhead completely swallows the benefit of parallel computation.
 
-**Measure before assuming it helps.** Seriously. Run a latency profile:
-
-```python
-import time
-
-def measure_distributed_inference(model, batch, num_gpus):
-    """Profile where time actually goes in distributed setup"""
-    
-    start = time.perf_counter()
-    
-    # Forward pass with inter-GPU communication
-    for layer_idx, layer in enumerate(model.layers):
-        layer_start =
+**Measure before assuming it helps.**
 
 ---
 
-## Related Articles
-
-- [Getting Started with Arduino Servo Motors: A Practical Guide](/posts/getting-started-with-arduino-servo-motors/)
-- [Open-Source LLM Outperforms Proprietary Models on Speed](/posts/open-source-llm-speed-performance/)
-- [Open-Source LLM Inference: Speed vs Proprietary Models](/posts/open-source-llm-inference-speed/)
-
-<!-- seo-optimized -->

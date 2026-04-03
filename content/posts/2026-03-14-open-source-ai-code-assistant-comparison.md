@@ -30,8 +30,6 @@ keywords:
 
 # I Just Tested the New Open-Source AI Code Assistant Everyone's Switching To — Here's How It Compares to Paid Tools
 
-## Hook
-
 I spent last week replacing my usual AI code assistant with an open-source alternative that's been gaining serious traction in dev communities. The shift wasn't casual—I was curious whether the free option could actually handle real work, or if I'd be back to my paid subscription within days.
 
 The honest answer? It's messier than I expected, but not in the way I thought.
@@ -485,28 +483,8 @@ Paid tools win hardest when:
 
 If you're a solo developer or a small team optimizing for cost over everything, open-source still makes sense. But the moment you have 8+ people, the calculus flips.
 
-## Section 8: Real-World Case Study — A Team's Migration Experience
-
-A 12-person backend team building distributed systems in Go and Rust was hemorrhaging $2,400 a year on a paid AI assistant. Their hypothesis was clean: self-host an open-source alternative, slash costs to $500 annually, pocket the difference. On paper, it made sense. In practice, it nearly broke their deployment pipeline.
-
-### The Setup That Looked Perfect
-
-They deployed an open-source model on a shared GPU server, integrated it into VS Code and their IDE plugins, and spent two weeks training the team on effective prompting. Total upfront investment: 60 hours across the team. Infrastructure cost: $150/month. The math still worked. Then they started measuring what actually mattered.
-
-### What the Numbers Actually Showed
-
-After 8 weeks of real work:
-
-- **Code completion accuracy tanked** from 74% to 58% for multi-line completions. That's not a rounding error—that's a 16-point drop in reliability.
-- **PR review time ballooned** from 11 minutes per review to 16 minutes. Reviewers had to spend more time catching mistakes the assistant should've prevented.
-- **Two critical bugs shipped** because the open-source tool suggested unsafe pointer operations in Rust that the paid tool would've immediately flagged. Both made it past code review. Both required hotf
-
 ---
 
 ## Related Articles
 
-- [Getting Started with Arduino Servo Motors: A Practical Guide](/posts/getting-started-with-arduino-servo-motors/)
-- [Open-Source LLM Inference: Speed vs Proprietary Models](/posts/open-source-llm-inference-speed/)
 - [Real-Time Object Detection and Tracking in Robotics: Optimizing Computer Vision Pipelines for Edge Devices](/posts/real-time-object-detection-tracking-robotics-edge-optimization/)
-
-<!-- seo-optimized -->

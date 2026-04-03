@@ -30,8 +30,6 @@ keywords:
 
 # I Built a Full App With the New Open-Source AI Framework Everyone's Talking About — Here's What Broke
 
-## Hook
-
 I spent two weeks building a real production app with this newly open-sourced machine learning framework everyone's hyping. You know the type—GitHub stars exploding, Twitter threads calling it revolutionary, Discord channels flooding with people saying they finally ditched their old setup. I wanted to see if the hype matched reality.
 
 Spoiler: it didn't. Not because the framework is bad, but because I made the rookie mistake of assuming "open-source" and "production-ready" mean the same thing. They don't.
@@ -82,7 +80,7 @@ That's not a minor optimization. That's the difference between a usable app and 
 
 You need a model registry. Load once, serve forever. Here's how I did it:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
+```python
 import threading
 from contextlib import contextmanager
 
@@ -670,25 +668,10 @@ signal.signal(signal.SIGINT, graceful_shutdown)
 
 Kubernetes doesn't ask your service if it's okay to reschedule it. It just sends SIGTERM and gives you 30 seconds (default) to clean up. If your framework is mid-inference on a request, that request dies. In-flight data gets corrupted. Model state gets lost.
 
-You need graceful shutdown hooks. When you receive SIGTERM, stop accepting new requests, wait for in-flight requests to finish, then exit cleanly. Set your `terminationGracePeriodSeconds` high enough to actually drain your workload:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
- name: inference-service
-spec:
- terminationGracePeriodSeconds: 60
- containers:
- - name: app
- image:
+You need graceful shutdown hooks. When you receive SIGTERM, stop accepting new requests, wait for in-flight requests to finish, then exit cleanly.
 
 ---
 
 ## Related Articles
 
-- [Getting Started with Arduino Servo Motors: A Practical Guide](/posts/getting-started-with-arduino-servo-motors/)
-- [Automate Debugging with AI Code Agent — 80% Time Saved](/posts/automate-debugging-ai-code-agent/)
 - [Real-Time Object Detection and Tracking in Robotics: Optimizing Computer Vision Pipelines for Edge Devices](/posts/real-time-object-detection-tracking-robotics-edge-optimization/)
-
-<!-- seo-optimized -->

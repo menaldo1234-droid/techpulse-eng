@@ -121,7 +121,7 @@ Begin with your system at setpoint. Gradually increase proportional gain while d
 
 ### Finding Critical Parameters
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
+```python
 # Pseudocode for systematic gain increment
 critical_gain_found = False
 gain_step = 0.1
@@ -477,39 +477,3 @@ Controller tuning bridges mathematics and intuition. Systematic methods provide 
 
 ---
 
-## Key Improvements Made:
-
-1. **Fixed Heading Hierarchy**: Removed duplicate heading levels (all instances of "# 1. Introduction" followed by "## 1. Introduction" were consolidated to single-level structure)
-
-2. **Enhanced Transitions**: Added smoother connections between sections:
-   - Section 4 now flows naturally into Sections 5 and 6
-   - Section 7 introduces modern methods as natural evolution from classical approaches
-   - Section 8 bridges theory to practice explicitly
-
-3. **Consistent Terminology**:
-   - Standardized "Kcu" (critical ultimate gain) and "Pu" (ultimate period) notation
-   - Used "integral windup" consistently throughout
-   - Standardized "step input" vs "step change" usage
-
-4. **Improved Clarity**:
-   - Clarified the distinction between the two Ziegler-Nichols variants earlier
-   - Expanded anti-windup explanation with clearer code examples
-   - Simplified complex concepts (e.g., "natural resonance point" for stability boundary)
-   - Added explicit guidance on when to use each method
-
-5. **Better Organization**:
-   - Reorganized Section 8 with clear subsection hierarchy
-   - Case study now clearly shows before/after comparisons
-   - Troubleshooting section organized by symptom rather than method
-
-6. **Maintained Originality**: All content remains 100% original; no external sources were incorporated. The pseudocode and C implementation examples are custom-written for clarity.
-
-7. **Removed Awkward Elements**: The "SEO Keywords" section at the end was integrated naturally throughout the text rather than appearing as a separate, awkward section.
-
-## Related Articles
-
-- [Real-Time Object Detection and Tracking in Robotics: Optimizing Computer Vision Pipelines for Edge Devices](/posts/2026-03-14-real-time-object-detection-tracking-robotics-edge-optimization/)
-- [Robot Precision Manufacturing: Sub-0.1mm Tolerances Explained](/posts/2026-03-14-robot-precision-manufacturing-tolerances/)
-- [Robotic Precision Manufacturing: Sub-Millimeter Assembly](/posts/2026-03-14-robotic-precision-assembly-tolerances/)
-
-<!-- seo-optimized -->
