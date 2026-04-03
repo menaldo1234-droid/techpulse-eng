@@ -29,8 +29,6 @@ keywords:
 
 # I Just Tested the New Open-Source AI Model Everyone's Talking About — It's Faster Than Claude and Actually Free
 
-## Hook
-
 I spent last Tuesday running this new open-source model through the same workloads I've been throwing at the paid alternatives for months. Token-for-token comparison, same prompts, same hardware. The results caught me off guard enough that I immediately spun up a second instance just to confirm I wasn't seeing a fluke.
 
 Here's the thing: **speed matters more than people admit**. A 200ms difference on a single request sounds trivial until you're running thousands of inferences daily. That's the difference between a snappy UI and one that feels like it's thinking. I've watched production systems tank because latency crept up 300ms at a time, and users started complaining before anyone even noticed the metrics shift.

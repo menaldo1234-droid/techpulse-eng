@@ -30,8 +30,6 @@ keywords:
 
 # I Built an AI Agent That Codes Entire Features — Here's How It Beats Claude for Production Work
 
-## Hook
-
 I spent three weeks building an AI agent that writes production code without me touching the keyboard, and it's genuinely better than prompting Claude directly for feature development. Not in every scenario—but for the ones that matter in real work, it wins consistently.
 
 Here's the thing: most developers treat LLMs like a smarter autocomplete. You describe what you want, it spits out code, you fix the bugs. That workflow breaks down fast at scale. I was shipping features that needed five rounds of back-and-forth corrections, architectural rethinking, and test coverage fixes. The LLM kept forgetting context. It'd suggest solutions that conflicted with patterns I'd established earlier. It couldn't reason about my codebase's actual structure.
@@ -651,29 +649,5 @@ CREATE TABLE events (
 );
 ```
 
-**API modification** — the create post endpoint now publishes events with explicit timeout handling:
-
-```python
-async def create_post(request: CreatePostRequest, user_id: int):
- post = await db.posts.create(
- user_id=user_id,
- content=request.content
- )
- 
- try:
- event = PostCreatedEvent(
- post_id=post.id,
- user_id=user_id,
- timestamp=datetime.utcnow()
- )
- await queue
-
 ---
 
-## Related Articles
-
-- [Getting Started with Arduino Servo Motors: A Practical Guide](/posts/getting-started-with-arduino-servo-motors/)
-- [Automate Debugging with AI Code Agent — 80% Time Saved](/posts/automate-debugging-ai-code-agent/)
-- [Open-Source AI Framework: Production Issues & Lessons](/posts/open-source-ai-framework-production-issues/)
-
-<!-- seo-optimized -->

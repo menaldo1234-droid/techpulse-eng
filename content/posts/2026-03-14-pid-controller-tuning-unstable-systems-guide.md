@@ -121,7 +121,7 @@ Begin with your system at setpoint. Gradually increase proportional gain while d
 
 ### Finding Critical Parameters
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
+```python
 # Pseudocode for systematic gain increment
 critical_gain_found = False
 gain_step = 0.1
@@ -506,10 +506,3 @@ Controller tuning bridges mathematics and intuition. Systematic methods provide 
 
 7. **Removed Awkward Elements**: The "SEO Keywords" section at the end was integrated naturally throughout the text rather than appearing as a separate, awkward section.
 
-## Related Articles
-
-- [Real-Time Object Detection and Tracking in Robotics: Optimizing Computer Vision Pipelines for Edge Devices](/posts/2026-03-14-real-time-object-detection-tracking-robotics-edge-optimization/)
-- [Robot Precision Manufacturing: Sub-0.1mm Tolerances Explained](/posts/2026-03-14-robot-precision-manufacturing-tolerances/)
-- [Robotic Precision Manufacturing: Sub-Millimeter Assembly](/posts/2026-03-14-robotic-precision-assembly-tolerances/)
-
-<!-- seo-optimized -->

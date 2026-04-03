@@ -30,8 +30,6 @@ keywords:
 
 # Claude's New Code Agent Just Automated 80% of My Debugging — Here's How to Use It
 
-## Hook
-
 Last Tuesday I spent four hours tracking down why a payment webhook was silently failing in production. The logs were there. The error messages were cryptic. I was bouncing between three different services trying to correlate timestamps and trace the actual failure point. By the time I found it—a malformed header in the retry logic—I'd already wasted half my day on work that felt like searching for a needle in a haystack blindfolded.
 
 That's the moment this new code agent hit different for me.
@@ -86,7 +84,7 @@ A profiler tells you function X takes 2 seconds. That's a fact. But it doesn't k
 
 AI agents read the actual code. They understand context. They see this:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
+```python
 def calculate_user_metrics(user_id):
     # Fetch all user events
     events = db.query("SELECT * FROM events WHERE user_id = ?", user_id)
@@ -546,16 +544,5 @@ You paste a stack trace. The agent asks for the code. You get annoyed and paste 
 
 Use the context checklist from earlier: stack trace + relevant code diff + recent changes + expected vs. actual behavior. Don't skip steps just because you're in a hurry. A five-minute context gathering session saves you 30 minutes of debugging false leads.
 
-### Monitoring vs. Firefighting
-
-Here's the hard truth: **an agent can't prevent bugs, only find them faster.** If your team is debugging the same class of error every week, the problem isn't that you need a better debugging tool. It's that your monitoring is asleep.
-
-Agent-assisted debugging is a *complement* to monitoring, not a replacement. You should be catching issues in staging or with synthetic monitoring, not
-
 ---
 
-## Related Articles
-
-- [Getting Started with Arduino Servo Motors: A Practical Guide](/posts/getting-started-with-arduino-servo-motors/)
-
-<!-- seo-optimized -->

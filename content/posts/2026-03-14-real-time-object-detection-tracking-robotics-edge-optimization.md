@@ -94,7 +94,7 @@ For robotics specifically, choose architectures based on your hardware: CPU-cons
 
 **Quantization** converts 32-bit floating-point weights to 8-bit integers, reducing model size by 75% with minimal accuracy loss:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
+```python
 # Pseudo-code for post-training quantization
 quantized_weights = np.round(original_weights * 127).astype(np.int8)
 scale_factor = np.max(np.abs(original_weights)) / 127
@@ -677,10 +677,3 @@ Additional critical concepts include **inference acceleration**, leveraging spec
 
 These foundational concepts guide architectural decisions throughout the implementation process.
 
-## Related Articles
-
-- [PID Controller Tuning for Nonlinear Systems: Practical Guide](/posts/2026-03-14-pid-tuning-nonlinear-systems/)
-- [Robot Precision Manufacturing: Sub-0.1mm Tolerances Explained](/posts/2026-03-14-robot-precision-manufacturing-tolerances/)
-- [Robotic Precision Manufacturing: Sub-Millimeter Assembly](/posts/2026-03-14-robotic-precision-assembly-tolerances/)
-
-<!-- seo-optimized -->

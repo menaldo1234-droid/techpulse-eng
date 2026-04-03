@@ -29,8 +29,6 @@ keywords:
 
 # I Just Tested the New Open-Source AI Model Everyone's Talking About — It's Faster Than Claude and Actually Free
 
-## Hook
-
 I spent last week running the same prompts through this new open-source model and the major paid alternatives. The results shocked me. We're talking **response times under 300ms** on consumer hardware while Claude is hitting 2-3 seconds. And it actually works—not a stripped-down version that cuts corners on reasoning, but legitimately competitive output.
 
 Here's what got me: I was expecting the usual trade-off. Faster usually means dumber. Cheaper usually means you're debugging garbage tokens. But this thing broke that pattern. I ran it against my standard test suite—API latency benchmarks, code generation tasks, reasoning chains on moderately complex problems—and it kept delivering. The model size is smaller. The inference is snappier. The cost is literally zero if you self-host it.

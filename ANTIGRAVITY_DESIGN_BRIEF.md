@@ -67,7 +67,7 @@ Transform from "customized blog template" to "premium tech media site that feels
 
 ## Files to Modify
 | File | Purpose |
-|------|---------||
+|------|---------|
 | `assets/css/extended/custom.css` | Main custom styles |
 | `layouts/partials/extend_head.html` | Font loading, meta tags |
 | `layouts/partials/footer.html` | Footer with newsletter |

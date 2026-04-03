@@ -29,8 +29,6 @@ keywords:
 
 # AI Video Generation Just Hit Real-Time — We Tested It Against Paid Tools and It's Free
 
-## Hook
-
 I tested a free real-time AI video generator yesterday that honestly made me question why I've been paying $30/month for the premium stuff. You know that moment when a tool just *works* and you realize the entire market category just shifted? This is one of those.
 
 Here's what happened: I threw a 15-second script at it. No fancy prompts, no engineering. The output came back in 47 seconds with talking heads, smooth camera work, and decent color grading. The paid tools I've been using took 3-5 minutes for comparable quality, and they still cost money.

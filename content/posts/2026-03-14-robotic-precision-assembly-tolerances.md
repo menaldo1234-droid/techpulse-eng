@@ -29,8 +29,6 @@ keywords:
 
 # This [Robot](https://www.amazon.com/s?k=robot+building+kit&tag=techblips-20) Just Did Something We Thought Was Impossible — And It Changes Everything for Manufacturing
 
-## Hook
-
 A robot just assembled a transmission housing with tolerances tight enough that a human inspector couldn't visually detect the difference between parts. We're talking sub-millimeter precision on a task that traditionally required either CNC machines or highly skilled manual labor. The catch? It did this without pre-programmed paths, without 3D models of the workpiece, and without any of the rigid setup time that makes traditional automation so expensive.
 
 I watched the test footage three times. The robot's gripper adapted in real-time to part variations, adjusted grip pressure on the fly, and recovered from positioning errors that would've crashed a conventional assembly line. This isn't just incremental improvement. This is the difference between automation that works only in controlled, identical conditions versus automation that actually handles the chaos of real manufacturing.
@@ -240,7 +238,7 @@ They don't overlap. No conflicts. The gripper doesn't try to classify parts. The
 
 Instead of a message queue with guaranteed delivery, you use a time-series database (or a fast pub-sub system like Redis streams) as your coordination layer. Each component writes its current state asynchronously:
 
-```[python](https://www.amazon.com/s?k=python+programming+book&tag=techblips-20)
+```python
 # Gripper publishes its state every 10ms
 def publish_gripper_state(db_client):
     while True:
@@ -582,8 +580,4 @@ Here's the problem nobody talks about: you build a killer AI model that can pred
 
 ## Related Articles
 
-- [Getting Started with Arduino Servo Motors: A Practical Guide](/posts/getting-started-with-arduino-servo-motors/)
 - [Real-Time Object Detection and Tracking in Robotics: Optimizing Computer Vision Pipelines for Edge Devices](/posts/real-time-object-detection-tracking-robotics-edge-optimization/)
-- [Open-Source LLM Inference: Speed vs Proprietary Models](/posts/open-source-llm-inference-speed/)
-
-<!-- seo-optimized -->

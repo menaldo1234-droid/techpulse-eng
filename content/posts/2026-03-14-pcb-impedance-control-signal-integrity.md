@@ -29,8 +29,6 @@ keywords:
 
 # Designing Multi-Layer [PCBs](https://www.amazon.com/s?k=pcb+prototyping+board&tag=techblips-20) for High-Speed Digital Signals: Impedance Control and Signal Integrity Fundamentals
 
-## Hook
-
 Your signal arrives at the receiving end 40 picoseconds late, but the clock expects it 35 picoseconds from now. The timing margin evaporates. Your high-speed digital board—carefully routed, meticulously fabricated—begins dropping packets at random intervals. The failure appears intermittent under lab conditions but becomes systematic in production, and debugging reveals the culprit: reflections bouncing back from impedance mismatches buried three layers deep in the stackup.
 
 This scenario plays out regularly in designs pushing 5 Gbps and beyond. The fundamental problem is that **impedance discontinuities create signal reflections that degrade edge quality, introduce jitter, and corrupt data**. Traditional PCB design treats traces as simple copper paths. At high frequencies, they become transmission lines with characteristic impedance determined by trace width, dielectric thickness, and material properties. When a signal encounters an impedance mismatch—say, a 50-ohm trace suddenly narrowing to 45 ohms—part of the energy reflects backward, interfering with the forward-traveling wave and distorting the received signal.
@@ -382,10 +380,3 @@ Your 4-week timeline becomes feasible when you preserve the lower-layer design a
 - Physics and calculations remain original and accurate
 - Maintained all technical depth while improving readability
 
-## Related Articles
-
-- [Real-Time Object Detection and Tracking in Robotics: Optimizing Computer Vision Pipelines for Edge Devices](/posts/2026-03-14-real-time-object-detection-tracking-robotics-edge-optimization/)
-- [Robot Precision Manufacturing: Sub-0.1mm Tolerances Explained](/posts/2026-03-14-robot-precision-manufacturing-tolerances/)
-- [Robotic Precision Manufacturing: Sub-Millimeter Assembly](/posts/2026-03-14-robotic-precision-assembly-tolerances/)
-
-<!-- seo-optimized -->

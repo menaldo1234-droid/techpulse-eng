@@ -30,8 +30,6 @@ keywords:
 
 # I Just Tested the New Open-Source AI Code Assistant Everyone's Switching To — Here's How It Compares to Paid Tools
 
-## Hook
-
 I spent last week replacing my usual AI code assistant with an open-source alternative that's been gaining serious traction in dev communities. The shift wasn't casual—I was curious whether the free option could actually handle real work, or if I'd be back to my paid subscription within days.
 
 The honest answer? It's messier than I expected, but not in the way I thought.
@@ -505,8 +503,4 @@ After 8 weeks of real work:
 
 ## Related Articles
 
-- [Getting Started with Arduino Servo Motors: A Practical Guide](/posts/getting-started-with-arduino-servo-motors/)
-- [Open-Source LLM Inference: Speed vs Proprietary Models](/posts/open-source-llm-inference-speed/)
 - [Real-Time Object Detection and Tracking in Robotics: Optimizing Computer Vision Pipelines for Edge Devices](/posts/real-time-object-detection-tracking-robotics-edge-optimization/)
-
-<!-- seo-optimized -->
