@@ -1,0 +1,61 @@
+name: Weekly Content Brief
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Every Monday at 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  generate-brief:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Generate content briefs with Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            이번 주 테크 트렌드를 분석하고 3개의 기사 주제를 제안해.
+            각 주제별로 다음을 포함해:
+            - 제목
+            - 핵심 논점 3개
+            - 참고 소스 3개
+            - 관련 Tech Radar 블립
+
+            /data/briefs/ 디렉토리에 YYYY-MM-DD-brief.yaml 형식으로 YAML 파일을 저장하고 PR을 만들어.
+
+            YAML 구조 예시:
+            ```yaml
+            date: 2024-01-01
+            topics:
+              - title: "주제 제목"
+                key_points:
+                  - "논점 1"
+                  - "논점 2"
+                  - "논점 3"
+                sources:
+                  - "소스 URL 1"
+                  - "소스 URL 2"
+                  - "소스 URL 3"
+                radar_blips:
+                  - "관련 블립"
+            ```
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "feat: add weekly content brief"
+          branch: content-brief/${{ github.run_id }}
+          title: "[Brief] Weekly content suggestions"
+          body: |
+            ## Weekly Content Brief
+
+            AI가 분석한 이번 주 테크 트렌드 기반 기사 주제 제안입니다.
+            검토 후 승인할 주제를 선택해주세요.

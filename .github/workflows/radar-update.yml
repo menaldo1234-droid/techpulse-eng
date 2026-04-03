@@ -1,0 +1,45 @@
+name: Quarterly Radar Update
+
+on:
+  schedule:
+    - cron: "0 9 1 1,4,7,10 *" # 1/4/7/10월 1일 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  suggest-radar-updates:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Analyze radar and suggest updates
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            /data/radar/ 디렉토리의 최신 JSON 파일을 분석하고 Tech Radar 블립 이동을 제안해.
+
+            각 블립 변경 제안에는 다음을 포함해:
+            - 블립 이름
+            - 현재 위치 (ring + quadrant)
+            - 제안 위치 (ring + quadrant)
+            - 변경 근거 (최근 업계 동향, 채택률, 커뮤니티 활동 등)
+
+            변경 사항을 /data/radar/ 의 JSON 파일에 반영하고 PR을 만들어.
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "feat: quarterly radar blip update suggestions"
+          branch: radar-update/${{ github.run_id }}
+          title: "[Radar] Quarterly blip movement suggestions"
+          body: |
+            ## Quarterly Radar Update
+
+            AI가 분석한 분기별 Tech Radar 블립 이동 제안입니다.
+            각 변경의 근거를 검토한 후 승인해주세요.

@@ -1,8 +1,6 @@
 name: Auto-Generate Content
 
 on:
-  schedule:
-    - cron: "0 8 * * 1,3,5" # Mon/Wed/Fri at 8 AM UTC
   workflow_dispatch:
     inputs:
       topic:
