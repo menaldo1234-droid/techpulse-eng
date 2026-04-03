@@ -1,0 +1,288 @@
+{
+  "name": "TechBlips Radar — Q2 2026",
+  "date": "2026-04-01",
+  "quadrants": [
+    { "id": 0, "name": "AI & ML" },
+    { "id": 1, "name": "Cloud & Infrastructure" },
+    { "id": 2, "name": "Developer Tools" },
+    { "id": 3, "name": "Platforms & APIs" }
+  ],
+  "rings": [
+    { "id": 0, "name": "Adopt", "description": "Strongly recommend for production use" },
+    { "id": 1, "name": "Trial", "description": "Worth pursuing in low-risk projects" },
+    { "id": 2, "name": "Assess", "description": "Explore to understand how it might affect you" },
+    { "id": 3, "name": "Hold", "description": "Proceed with caution in new projects" }
+  ],
+  "blips": [
+    {
+      "id": 1,
+      "name": "Claude Code",
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 1,
+      "description": "CLI-native AI coding agent that handles multi-file edits, git ops, and complex refactors autonomously. The terminal-first approach outperforms IDE-embedded copilots for large-scale changes.",
+      "link": "/radar/blips/claude-code/"
+    },
+    {
+      "id": 2,
+      "name": "RAG Pipelines",
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "description": "Retrieval-Augmented Generation is now the default architecture for production LLM applications. Embedding + vector search + generation is a solved pattern.",
+      "link": "/radar/blips/rag-pipelines/"
+    },
+    {
+      "id": 3,
+      "name": "Cloudflare Workers",
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "description": "Edge-native serverless compute with sub-millisecond cold starts. D1, KV, R2, and Queues form a complete platform without managing infrastructure.",
+      "link": "/radar/blips/cloudflare-workers/"
+    },
+    {
+      "id": 4,
+      "name": "Cursor",
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "description": "AI-first code editor built on VS Code. Tab completion and multi-file edits make it the productivity default for greenfield projects.",
+      "link": "/radar/blips/cursor/"
+    },
+    {
+      "id": 5,
+      "name": "Supabase",
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "description": "Open-source Firebase alternative with Postgres, auth, realtime, and edge functions. Mature enough for production SaaS with excellent DX.",
+      "link": "/radar/blips/supabase/"
+    },
+    {
+      "id": 6,
+      "name": "LangChain",
+      "quadrant": 0,
+      "ring": 1,
+      "moved": -1,
+      "description": "Popular LLM orchestration framework, but growing complexity and abstraction overhead push teams toward simpler alternatives like direct SDK calls or LangGraph.",
+      "link": "/radar/blips/langchain/"
+    },
+    {
+      "id": 7,
+      "name": "Bun",
+      "quadrant": 2,
+      "ring": 1,
+      "moved": 1,
+      "description": "All-in-one JavaScript runtime challenging Node.js with dramatically faster startup, built-in bundler, and npm compatibility. Production adoption is accelerating.",
+      "link": "/radar/blips/bun/"
+    },
+    {
+      "id": 8,
+      "name": "Vercel v0",
+      "quadrant": 2,
+      "ring": 1,
+      "moved": 1,
+      "description": "AI-powered UI generation that produces React components from natural language. Useful for rapid prototyping but generated code often needs significant cleanup.",
+      "link": "/radar/blips/vercel-v0/"
+    },
+    {
+      "id": 9,
+      "name": "Stripe Billing",
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "description": "The default choice for SaaS subscription management. Handles pricing tiers, trials, upgrades, and invoicing with minimal custom code.",
+      "link": "/radar/blips/stripe-billing/"
+    },
+    {
+      "id": 10,
+      "name": "Llama 3.1",
+      "quadrant": 0,
+      "ring": 1,
+      "moved": 0,
+      "description": "Meta's open-weight model family. The 70B variant approaches GPT-4 level on many benchmarks while running on commodity hardware. Key for teams needing data sovereignty.",
+      "link": "/radar/blips/llama/"
+    },
+    {
+      "id": 11,
+      "name": "Docker Compose for Dev",
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "description": "Still the most reliable way to replicate production-like environments locally. Docker Desktop alternatives (OrbStack, Colima) improve the DX significantly.",
+      "link": "/radar/blips/docker-compose/"
+    },
+    {
+      "id": 12,
+      "name": "Tailwind CSS v4",
+      "quadrant": 2,
+      "ring": 1,
+      "moved": 1,
+      "description": "Major rewrite using Rust-based engine. Lightning CSS integration, automatic content detection, and CSS-first configuration reduce setup friction dramatically.",
+      "link": "/radar/blips/tailwind-v4/"
+    },
+    {
+      "id": 13,
+      "name": "Anthropic Claude API",
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 1,
+      "description": "200K context window, tool use, and computer use capabilities. Leading choice for complex agentic workflows requiring long-context reasoning.",
+      "link": "/radar/blips/claude-api/"
+    },
+    {
+      "id": 14,
+      "name": "Kubernetes (for small teams)",
+      "quadrant": 1,
+      "ring": 3,
+      "moved": 0,
+      "description": "Operational complexity remains prohibitive for teams under 5 engineers. Managed alternatives (Railway, Fly.io, Cloudflare) handle most workloads with far less overhead.",
+      "link": "/radar/blips/kubernetes-small-teams/"
+    },
+    {
+      "id": 15,
+      "name": "GitHub Actions",
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "description": "De facto CI/CD for GitHub-hosted projects. Marketplace actions and reusable workflows cover most automation needs without dedicated DevOps tooling.",
+      "link": "/radar/blips/github-actions/"
+    },
+    {
+      "id": 16,
+      "name": "Vite",
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "description": "The build tool that killed webpack for frontend development. Sub-second HMR, Rollup-based production builds, and framework-agnostic design make it the universal default.",
+      "link": "/radar/blips/vite/"
+    },
+    {
+      "id": 17,
+      "name": "OpenAI Assistants API",
+      "quadrant": 3,
+      "ring": 2,
+      "moved": -1,
+      "description": "Managed agent framework with file search, code interpreter, and function calling. Convenient but opaque — debugging failures is difficult and vendor lock-in is real.",
+      "link": "/radar/blips/openai-assistants/"
+    },
+    {
+      "id": 18,
+      "name": "AI Code Review Agents",
+      "quadrant": 0,
+      "ring": 1,
+      "moved": 1,
+      "description": "Automated PR review bots (CodeRabbit, Ellipsis, Copilot Review) catch bugs and style issues. Not a replacement for human review but a valuable first pass.",
+      "link": "/radar/blips/ai-code-review/"
+    },
+    {
+      "id": 19,
+      "name": "Deno 2",
+      "quadrant": 2,
+      "ring": 2,
+      "moved": 0,
+      "description": "Secure-by-default runtime with npm compatibility added in v2. Compelling for new projects, but ecosystem gaps and migration cost keep adoption cautious.",
+      "link": "/radar/blips/deno/"
+    },
+    {
+      "id": 20,
+      "name": "Multi-Agent Systems",
+      "quadrant": 0,
+      "ring": 2,
+      "moved": 1,
+      "description": "Orchestrating multiple AI agents to solve complex tasks collaboratively. Promising but reliability and debugging remain unsolved at scale.",
+      "link": "/radar/blips/multi-agent/"
+    },
+    {
+      "id": 21,
+      "name": "Fly.io",
+      "quadrant": 1,
+      "ring": 1,
+      "moved": 0,
+      "description": "Deploy containers globally with built-in load balancing and Postgres. Great developer experience for teams that need more control than serverless but less than Kubernetes.",
+      "link": "/radar/blips/fly-io/"
+    },
+    {
+      "id": 22,
+      "name": "tRPC",
+      "quadrant": 3,
+      "ring": 1,
+      "moved": 0,
+      "description": "End-to-end type-safe APIs without code generation. Excellent for TypeScript monorepos where client and server share a codebase.",
+      "link": "/radar/blips/trpc/"
+    },
+    {
+      "id": 23,
+      "name": "Stable Diffusion XL",
+      "quadrant": 0,
+      "ring": 1,
+      "moved": 0,
+      "description": "Open-source image generation competitive with DALL-E 3. Self-hosting enables fine-tuning and avoids content policy restrictions for legitimate creative use.",
+      "link": "/radar/blips/stable-diffusion/"
+    },
+    {
+      "id": 24,
+      "name": "PlanetScale",
+      "quadrant": 3,
+      "ring": 3,
+      "moved": -1,
+      "description": "Serverless MySQL platform. Free tier removal and Vitess complexity push small teams toward Supabase (Postgres) or Turso (SQLite). Still strong for MySQL-dependent workloads.",
+      "link": "/radar/blips/planetscale/"
+    },
+    {
+      "id": 25,
+      "name": "Turborepo",
+      "quadrant": 2,
+      "ring": 1,
+      "moved": 0,
+      "description": "Monorepo build system with intelligent caching. Simpler than Nx for TypeScript projects. Remote caching via Vercel speeds up CI significantly.",
+      "link": "/radar/blips/turborepo/"
+    },
+    {
+      "id": 26,
+      "name": "Hono",
+      "quadrant": 3,
+      "ring": 1,
+      "moved": 1,
+      "description": "Ultrafast web framework designed for edge runtimes. Works on Cloudflare Workers, Deno, Bun, and Node. Becoming the Express.js successor for modern stacks.",
+      "link": "/radar/blips/hono/"
+    },
+    {
+      "id": 27,
+      "name": "Fine-tuning LLMs",
+      "quadrant": 0,
+      "ring": 2,
+      "moved": -1,
+      "description": "Custom model training is expensive and often unnecessary. RAG + prompt engineering solves most domain-specific needs. Reserve fine-tuning for truly unique data patterns.",
+      "link": "/radar/blips/fine-tuning/"
+    },
+    {
+      "id": 28,
+      "name": "Neon Postgres",
+      "quadrant": 1,
+      "ring": 1,
+      "moved": 1,
+      "description": "Serverless Postgres with branch-like database forking. Scale-to-zero billing and instant provisioning make it compelling for dev/staging environments.",
+      "link": "/radar/blips/neon/"
+    },
+    {
+      "id": 29,
+      "name": "Biome",
+      "quadrant": 2,
+      "ring": 2,
+      "moved": 1,
+      "description": "Rust-based linter and formatter replacing ESLint + Prettier with a single tool. 10-100x faster, but plugin ecosystem is still catching up.",
+      "link": "/radar/blips/biome/"
+    },
+    {
+      "id": 30,
+      "name": "Toss Payments API",
+      "quadrant": 3,
+      "ring": 1,
+      "moved": 0,
+      "description": "Korea's leading payment gateway with clean REST API design. Handles card payments, virtual accounts, and mobile payments. Essential for any Korean-market SaaS.",
+      "link": "/radar/blips/toss-payments/"
+    }
+  ]
+}

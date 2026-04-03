@@ -1,0 +1,47 @@
+{{ define "main" }}
+<article class="radar-page">
+  <div class="radar-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+    <p class="radar-subtitle">{{ . }}</p>
+    {{ end }}
+    {{ with .Params.edition }}
+    <span class="radar-date">{{ . }}</span>
+    {{ end }}
+  </div>
+
+  {{ .Content }}
+
+  <div class="radar-filters" id="radar-filters">
+    <button class="radar-filter-btn active" data-quadrant="all">All</button>
+    <button class="radar-filter-btn" data-quadrant="0" style="--btn-color: #6c5ce7">AI &amp; ML</button>
+    <button class="radar-filter-btn" data-quadrant="1" style="--btn-color: #0ea5e9">Cloud &amp; Infra</button>
+    <button class="radar-filter-btn" data-quadrant="2" style="--btn-color: #f59e0b">Dev Tools</button>
+    <button class="radar-filter-btn" data-quadrant="3" style="--btn-color: #10b981">Platforms &amp; APIs</button>
+  </div>
+
+  <div class="radar-container">
+    <div id="tech-radar" data-source="/data/radar/2026-q2.json"></div>
+    <div class="radar-sidebar">
+      <div id="radar-blip-list"></div>
+      <div id="radar-legend"></div>
+    </div>
+  </div>
+</article>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="/js/radar.js"></script>
+<script>
+  // Quadrant filter buttons
+  document.querySelectorAll('.radar-filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.radar-filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+{{ end }}
+
+{{ define "head" }}
+<link rel="stylesheet" href="/css/radar.css">
+{{ end }}

@@ -60,6 +60,11 @@ Written by Henry — no corporate fluff, just real takes on what matters in tech
     url = "/categories/technology/"
     weight = 30
   [[menu.main]]
+    identifier = "radar"
+    name = "📡 Radar"
+    url = "/radar/current/"
+    weight = 35
+  [[menu.main]]
     identifier = "search"
     name = "🔍 Search"
     url = "/search/"

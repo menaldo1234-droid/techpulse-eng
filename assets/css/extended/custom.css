@@ -587,3 +587,72 @@ main {
 [data-theme=dark] .post-content pre {
   border-color: var(--border-light);
 }
+
+/* --- Newsletter Signup --- */
+.newsletter-signup {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background: var(--accent-bg, rgba(108, 92, 231, 0.06));
+  border: 1px solid var(--border-light, #e8ecf1);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.newsletter-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.newsletter-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #64748b);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light, #e8ecf1);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--bg-card, #fff);
+  color: var(--text-primary, #1a1a2e);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.newsletter-input:focus {
+  border-color: var(--accent, #6c5ce7);
+}
+
+.newsletter-btn {
+  padding: 10px 20px;
+  background: var(--accent, #6c5ce7);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.newsletter-btn:hover {
+  background: var(--accent-hover, #5a4bd1);
+}
+
+@media (max-width: 480px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+}

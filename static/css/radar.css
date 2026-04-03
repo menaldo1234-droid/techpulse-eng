@@ -1,0 +1,348 @@
+/* ========================================
+   TechBlips Radar — Styles
+   ======================================== */
+
+/* --- Radar Container --- */
+.radar-container {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+@media (max-width: 860px) {
+  .radar-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+#tech-radar {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.radar-svg {
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+/* --- Tooltip --- */
+.radar-tooltip {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border-light, #e8ecf1);
+  border-radius: 10px;
+  padding: 14px 16px;
+  max-width: 300px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  display: none;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.radar-tooltip.visible {
+  opacity: 1;
+}
+
+.radar-tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.radar-tooltip-ring {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.radar-tooltip-quadrant {
+  font-size: 11px;
+  color: var(--text-muted, #94a3b8);
+}
+
+.radar-tooltip-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 6px;
+}
+
+.radar-tooltip-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary, #64748b);
+  margin-bottom: 8px;
+}
+
+.radar-tooltip-cta {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent, #6c5ce7);
+}
+
+/* --- Sidebar: Blip List --- */
+.radar-sidebar {
+  max-height: 700px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.radar-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.radar-sidebar::-webkit-scrollbar-thumb {
+  background: var(--border-light, #e8ecf1);
+  border-radius: 2px;
+}
+
+.radar-list-ring {
+  margin-bottom: 1.5rem;
+}
+
+.radar-list-ring-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-light, #e8ecf1);
+}
+
+.radar-list-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radar-list-item {
+  margin-bottom: 2px;
+}
+
+.radar-list-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-primary, #1a1a2e);
+  font-size: 13px;
+  transition: background 0.15s;
+}
+
+.radar-list-link:hover {
+  background: var(--accent-bg, rgba(108, 92, 231, 0.06));
+}
+
+.radar-list-id {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.radar-list-name {
+  flex: 1;
+}
+
+.moved-in {
+  color: #10b981;
+  font-size: 10px;
+}
+
+.moved-out {
+  color: #ef4444;
+  font-size: 10px;
+}
+
+/* --- Legend --- */
+#radar-legend {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light, #e8ecf1);
+}
+
+.radar-legend-section h4 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted, #94a3b8);
+  margin-bottom: 6px;
+}
+
+.radar-legend-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.radar-legend-section li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary, #64748b);
+  padding: 3px 0;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-symbol {
+  width: 10px;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 10px;
+}
+
+/* --- Radar Page Header --- */
+.radar-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.radar-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.radar-header .radar-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary, #64748b);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.radar-header .radar-date {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 4px 12px;
+  background: var(--accent-bg, rgba(108, 92, 231, 0.06));
+  color: var(--accent, #6c5ce7);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* --- Quadrant Filter Buttons --- */
+.radar-filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.radar-filter-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border-light, #e8ecf1);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-secondary, #64748b);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.radar-filter-btn:hover,
+.radar-filter-btn.active {
+  border-color: var(--accent, #6c5ce7);
+  color: var(--accent, #6c5ce7);
+  background: var(--accent-bg, rgba(108, 92, 231, 0.06));
+}
+
+/* --- Blip Detail Page --- */
+.blip-detail {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.blip-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.blip-ring-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.blip-quadrant-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light, #e8ecf1);
+  font-size: 12px;
+  color: var(--text-secondary, #64748b);
+}
+
+.blip-moved-badge {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* --- Dark Mode --- */
+[data-theme="dark"] .radar-tooltip {
+  background: var(--bg-card, #1e293b);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .radar-tooltip-name {
+  color: var(--text-primary, #e2e8f0);
+}
+
+[data-theme="dark"] .radar-list-link {
+  color: var(--text-primary, #e2e8f0);
+}
+
+[data-theme="dark"] .radar-list-link:hover {
+  background: rgba(108, 92, 231, 0.12);
+}
+
+[data-theme="dark"] {
+  --radar-ring-stroke: rgba(200, 200, 220, 0.1);
+  --radar-axis: rgba(200, 200, 220, 0.12);
+  --radar-ring-label: rgba(200, 200, 220, 0.35);
+}
