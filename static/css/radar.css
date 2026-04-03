@@ -346,3 +346,43 @@
   --radar-axis: rgba(200, 200, 220, 0.12);
   --radar-ring-label: rgba(200, 200, 220, 0.35);
 }
+
+/* --- Blip Hover Interactions & Quadrant Color Enhancements --- */
+.blip {
+  outline: none;
+}
+
+.blip-shape {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hover & Focus states scale the blip strongly */
+.blip:hover .blip-shape,
+.blip:focus .blip-shape {
+  transform: scale(1.6);
+  z-index: 100;
+}
+
+/* Colored glowing drop-shadow per quadrant */
+.blip-q0:hover .blip-shape, .blip-q0:focus .blip-shape {
+  filter: drop-shadow(0 0 12px rgba(108, 92, 231, 0.8)) brightness(1.2);
+}
+.blip-q1:hover .blip-shape, .blip-q1:focus .blip-shape {
+  filter: drop-shadow(0 0 12px rgba(14, 165, 233, 0.8)) brightness(1.2);
+}
+.blip-q2:hover .blip-shape, .blip-q2:focus .blip-shape {
+  filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.8)) brightness(1.2);
+}
+.blip-q3:hover .blip-shape, .blip-q3:focus .blip-shape {
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.8)) brightness(1.2);
+}
+
+/* Sidebar ID enhancements */
+.radar-list-id {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.radar-list-link:hover .radar-list-id {
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
