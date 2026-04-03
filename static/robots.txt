@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://techpulse-eng.menaldo1234.workers.dev/sitemap.xml
+Sitemap: https://techblips.com/sitemap.xml
