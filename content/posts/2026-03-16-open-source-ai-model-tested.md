@@ -20,11 +20,9 @@ tags:
 keywords:
   - "open-source AI model"
   - "free AI alternative to paid models"
-  - "how to run open-source AI locally"
   - "open-source AI model performance comparison"
-  - "best free AI models for developers"
-  - "open-source language model benchmarks"
-  - "local AI model setup and deployment"
+related_radar:
+  - "llama"
 ---
 
 # I Just Tested the New Open-Source AI Model Everyone's Talking About — It's Faster Than Claude and Actually Free
@@ -65,7 +63,7 @@ Here's what we're covering:
 
 The question isn't whether open-source models are good anymore. They are. The real question is whether they make sense *for your specific constraints*—and we're going to answer that with data, not hype.
 
-## Section 1: Defining Performance Metrics That Matter in Production
+## Defining Performance Metrics That Matter in Production
 
 Here's the thing nobody tells you: comparing AI models by their average response time is like judging a car's performance by its fuel efficiency alone. You'll make terrible decisions.
 
@@ -203,7 +201,7 @@ This gives you real percentile data, not marketing fluff. Run this against your 
 
 The key insight: a model that handles 50 RPS at p95 latency of 300ms is production-ready. A model that does 100 RPS but hits 2 seconds at p99 will frustrate users and spike your infrastructure costs. Measure what actually happens under stress, not what happens in a lab.
 
-## Section 2: Building a Reproducible Testing Environment
+## Building a Reproducible Testing Environment
 
 ### Match Your Testing Rig to Reality
 
@@ -277,7 +275,7 @@ Resource limits prevent one runaway container from starving the other. If the ch
 
 The payoff: you know what you're shipping before you ship it.
 
-## Section 3: Latency Breakdown and Why It Matters
+## Latency Breakdown and Why It Matters
 
 ### The Real Bottleneck: Where Your Inference Actually Slows Down
 
@@ -348,7 +346,7 @@ The key insight: **50ms timeout** means you're waiting for at most one additiona
 
 The mistake I see constantly: teams benchmark single-request latency, declare victory, then ship to production where concurrent requests tank throughput. Test with realistic concurrency from day one. Spin up a load generator that hammers your inference endpoint with 20-50 concurrent requests. That's your actual performance profile.
 
-## Section 4: True Cost Analysis—Infrastructure, Not Just API Calls
+## True Cost Analysis—Infrastructure, Not Just API Calls
 
 Here's the real talk: everyone gets excited about "free" open-source models, then gets blindsided by their first AWS bill. The model itself might be free, but running it at scale? That's where you actually spend money. Let me break down what this actually costs you.
 
@@ -411,7 +409,7 @@ Add a second GPU and your compute cost doubles, but your per-token cost stays fl
 
 The trap people fall into: they launch self-hosted to save money, then get hit with unexpected storage, egress, and operational overhead they didn't budget for. Start with APIs. Move to self-hosted only when you have actual traffic data proving it makes financial sense.
 
-## Section 5: Deployment Architecture for Reliability
+## Deployment Architecture for Reliability
 
 ### Start With Single-Instance Reality
 
@@ -581,7 +579,7 @@ Run this every 10 seconds. If it fails 3 times in a row, mark the instance as un
 
 **The real lesson here**: deployment reliability is about layers. Single instance + monitoring → load balancing → scaling triggers → fallback → health checks. Each layer catches what the previous one misses. Skip any of them and you'll regret it at 3 AM.
 
-## Section 6: Monitoring and Observability
+## Monitoring and Observability
 
 You need to know what's actually happening under the hood. Deploy this thing without observability and you'll ship to production blind, watching users complain on Twitter while you scramble to figure out why latency spiked at 3 AM.
 

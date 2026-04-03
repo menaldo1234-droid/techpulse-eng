@@ -21,11 +21,10 @@ tags:
 keywords:
   - "open-source AI code assistant"
   - "free AI coding tools comparison"
-  - "best open-source code assistant for developers"
-  - "how to replace paid AI code assistant with free alternative"
   - "open-source vs paid AI coding tools"
-  - "which open-source AI assistant is best for software engineers"
-  - "cost-free AI development tools evaluation"
+related_radar:
+  - "cursor"
+  - "claude-code"
 ---
 
 # I Just Tested the New Open-Source AI Code Assistant Everyone's Switching To — Here's How It Compares to Paid Tools

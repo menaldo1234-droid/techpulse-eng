@@ -22,10 +22,10 @@ keywords:
   - "AI code debugging automation"
   - "automated debugging tools"
   - "how to use AI for debugging code"
-  - "AI code agent vs manual debugging"
   - "debugging webhook failures with AI"
-  - "production debugging automation techniques"
-  - "reduce debugging time machine learning"
+related_radar:
+  - "claude-code"
+  - "ai-code-review"
 ---
 
 # Claude's New Code Agent Just Automated 80% of My Debugging — Here's How to Use It
@@ -196,7 +196,7 @@ NullPointerException at com.service.UserCache.get(UserCache.java:47)
 [Full trace with line numbers]
 
 **Code Change (from last deployment, 18 minutes before failure):**
-```java
+```
 // Changed line 47 from:
 User user = cache.getIfPresent(userId);
 // To:
@@ -210,7 +210,7 @@ User user = cache.get(userId); // Removed null-safety check
 - Request rate: 127 concurrent requests (normal: 20)
 
 **Reproduction:**
-```bash
+```
 for i in {1..150}; do
   curl -X POST http://localhost:8080/api/user \
     -d '{"id":"user_'$i'"}' &

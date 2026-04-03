@@ -21,10 +21,7 @@ keywords:
   - "robotic precision manufacturing"
   - "automated assembly tolerance control"
   - "how robots achieve sub-millimeter accuracy"
-  - "precision manufacturing automation vs manual"
-  - "robotic assembly quality control systems"
-  - "advanced manufacturing robotics applications"
-  - "tolerance optimization in automated production"
+related_radar: []
 ---
 
 # This [Robot](https://www.amazon.com/s?k=robot+building+kit&tag=techblips-20) Just Did Something We Thought Was Impossible — And It Changes Everything for Manufacturing

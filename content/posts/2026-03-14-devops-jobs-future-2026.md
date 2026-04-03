@@ -20,11 +20,12 @@ tags:
 keywords:
   - "DevOps jobs 2026"
   - "DevOps engineer career future"
-  - "is DevOps dead"
-  - "DevOps automation replacing roles"
-  - "infrastructure engineer vs DevOps"
-  - "what skills replace DevOps"
   - "platform engineering career path"
+  - "what skills replace DevOps"
+related_radar:
+  - "github-actions"
+  - "docker-compose"
+  - "kubernetes-small-teams"
 ---
 
 # AWS Just Killed the DevOps Job (Here's What Replaced It in 2026)
@@ -51,7 +52,7 @@ What replaced DevOps is messier and more specialized: **platform engineering** (
 
 Here's what you'll learn in this article: which specific infrastructure work vanished entirely, what new roles actually emerged and what they do, how to reposition yourself if you're in DevOps today, and which skills transfer directly versus which ones need retraining. By the end, you'll have a clear map of where the work went.
 
-## Section 1: The Infrastructure Work That Disappeared
+## The Infrastructure Work That Disappeared
 
 Five years ago, if your CI/CD pipeline went down, you had a person on call. That person knew every Jenkins plugin, every webhook configuration, every brittle shell script that glued your build system together. Today? That person doesn't exist at most companies. And it's not because they got fired—it's because the entire category of work evaporated.
 
@@ -101,7 +102,7 @@ Security groups, network policies, and managed load balancers are just resources
 
 The jobs that required hands-on infrastructure expertise—the ones where you had to understand kernel-level networking, load balancer internals, and failure domains—those didn't get easier. They got **eliminated**. The work that remains is fundamentally different.
 
-## Section 2: Platform Engineering: The New Abstraction Layer
+## Platform Engineering: The New Abstraction Layer
 
 Platform engineering isn't some abstract management theory—it's the direct response to a real problem: your company has 200 application teams, and every single one is writing their own deployment scripts, debugging Kubernetes manifests at 2 AM, and reinventing the same infrastructure patterns. That's waste at scale.
 
@@ -142,7 +143,7 @@ Here's the thing: if you know networking, resource allocation, failure modes, an
 
 The abstractions that don't leak, the cost models that actually work, the security policies that developers don't hate—that's where the real engineering happens. And it's harder than it looks.
 
-## Section 3: Reliability Engineering: From Reactive Ops to Proactive Design
+## Reliability Engineering: From Reactive Ops to Proactive Design
 
 ### The Real Shift: From "Is It Up?" to "How Close Are We to Breaking?"
 
@@ -205,7 +206,7 @@ What's new is the math. You need statistical thinking to define SLOs that reflec
 
 The engineer who can do all three—understand the failure modes, calculate the risk, and explain it to finance—that's the person running infrastructure in 2026.
 
-## Section 4: Full-Stack Ownership: Developers as Production Engineers
+## Full-Stack Ownership: Developers as Production Engineers
 
 The fundamental shift is brutal and non-negotiable: in 2015, you shipped code and walked away. In 2026, you ship code and you're on-call for it. You own the entire lifecycle from development to 3 AM when your service tanks.
 
@@ -279,7 +280,7 @@ You need three things:
 
 Without these tools, full-stack ownership becomes a nightmare. With them, it's just part of the job. And honestly? Most developers prefer owning their services end-to-end. You get faster feedback. You understand the whole system. You stop blaming ops for your problems.
 
-## Section 5: Site Reliability Engineering: Making Production Visible
+## Site Reliability Engineering: Making Production Visible
 
 ### The Reality: SRE is Where DevOps Evolved
 
@@ -347,7 +348,7 @@ You need the DevOps foundation—infrastructure knowledge is non-negotiable. But
 
 The SRE role kills the old DevOps job because it demands deeper ownership of production behavior. You're not just keeping systems running. You're making them transparent enough that anyone can operate them safely.
 
-## Section 6: The Cultural Shift: From "Ops Owns Production" to "Teams Own Outcomes"
+## The Cultural Shift: From "Ops Owns Production" to "Teams Own Outcomes"
 
 The old world had a clean incentive misalignment: ops teams were rewarded for stability (fewer changes = fewer failures), while developers were rewarded for shipping features (more changes = more value). These two groups literally wanted opposite things. DevOps was supposed to bridge that gap, but it mostly just created a new role that got pulled in both directions until it snapped.
 
@@ -378,7 +379,7 @@ Real leadership means defining SLOs that reflect actual business priorities, com
 
 The shift isn't technical. It's cultural. Teams stop asking "can we deploy this?" and start asking "should we deploy this?" That's the difference between a DevOps role and actual ownership.
 
-## Section 7: Observability as a Product (Not a Tool)
+## Observability as a Product (Not a Tool)
 
 Your current setup is probably broken. You've got 500 alerts firing per week, 490 of them are garbage, and your team stopped caring three months ago. When something actually matters, it gets lost in the noise. This is the core problem observability-as-a-product solves.
 
@@ -394,7 +395,7 @@ The product approach also means **runbooks that actually work.** Not generic tro
 
 This shift is why DevOps as a siloed role is disappearing. Platform teams now own observability-as-a-product, and application teams consume it.
 
-## Section 8: Scaling Developer-Owned Production
+## Scaling Developer-Owned Production
 
 Here's the challenge: one developer owns their microservice. They know every line. They ship fast. Then your team grows to 50 developers across 10 services. Suddenly nobody knows the full picture. You've got knowledge silos, inconsistent runbooks, and on-call rotations that are silently crushing people.
 
@@ -458,7 +459,7 @@ automation.handle_disk_space_alert('payment-service', 85)
 
 The real win: you stop paging people for incidents that don't need human judgment. You save the on-call rotation for actual emergencies—the ones where a human needs to think.
 
-## Section 9: Platform Architecture: Designing for Developer Velocity and Reliability
+## Platform Architecture: Designing for Developer Velocity and Reliability
 
 Platform architecture is where the real power shift happens. You're not designing infrastructure anymore—you're designing the *interface* between developers and infrastructure. That's a fundamentally different job.
 
@@ -488,7 +489,7 @@ Platform architecture inverts that. Developer experience becomes the primary goa
 
 That's the shift. You're not managing infrastructure anymore. You're managing the developer experience *of* infrastructure.
 
-## Section 10: Career Transition: From DevOps to the New Roles
+## Career Transition: From DevOps to the New Roles
 
 Your infrastructure skills aren't going anywhere. Understanding networking, storage, and compute at the system level? That's the foundation all three roles build on. Same with your ability to debug a cascading failure across five services at 2 AM or think about reliability at scale. Those muscle memories transfer directly.
 

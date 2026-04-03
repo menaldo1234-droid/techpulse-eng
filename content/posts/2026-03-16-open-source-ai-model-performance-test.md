@@ -20,11 +20,9 @@ tags:
 keywords:
   - "open-source AI model"
   - "fastest open-source language model"
-  - "free AI alternative to paid models"
   - "open-source AI model performance benchmark"
-  - "how to run open-source AI locally"
-  - "best free AI models for developers"
-  - "open-source vs proprietary AI comparison"
+related_radar:
+  - "llama"
 ---
 
 # I Just Tested the New Open-Source AI Model Everyone's Talking About — It's Faster Than Claude and Actually Free

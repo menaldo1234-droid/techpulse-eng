@@ -21,10 +21,7 @@ keywords:
   - "multi-layer PCB impedance control"
   - "high-speed PCB design"
   - "signal integrity PCB routing"
-  - "how to control impedance in PCB traces"
-  - "PCB trace routing for high-speed signals"
-  - "why does signal timing fail in digital boards"
-  - "layer stackup design for signal integrity"
+related_radar: []
 ---
 
 # Designing Multi-Layer [PCBs](https://www.amazon.com/s?k=pcb+prototyping+board&tag=techblips-20) for High-Speed Digital Signals: Impedance Control and Signal Integrity Fundamentals

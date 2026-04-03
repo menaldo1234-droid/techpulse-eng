@@ -19,12 +19,12 @@ tags:
   - "authentication-patterns"
 keywords:
   - "modern API framework"
-  - "API development framework"
   - "reduce API boilerplate code"
   - "how to build APIs faster"
   - "API framework comparison"
-  - "lightweight API development"
-  - "why APIs need better frameworks"
+related_radar:
+  - "hono"
+  - "trpc"
 ---
 
 # This New Framework Just Made Building APIs 10x Easier (And Developers Are Ditching the Old Way)

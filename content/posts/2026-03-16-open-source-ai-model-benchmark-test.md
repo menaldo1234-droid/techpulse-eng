@@ -20,11 +20,10 @@ tags:
 keywords:
   - "open-source AI model benchmark"
   - "free alternative to paid AI models"
-  - "how to evaluate open-source language models for production"
-  - "open-source AI model performance comparison"
-  - "best free AI models for developers"
   - "open-source model inference speed testing"
-  - "cost-free AI tools for software engineers"
+related_radar:
+  - "llama"
+  - "fine-tuning"
 ---
 
 # I Just Tested the New Open-Source AI Model Everyone's Talking About — It's Faster Than Claude and Actually Free

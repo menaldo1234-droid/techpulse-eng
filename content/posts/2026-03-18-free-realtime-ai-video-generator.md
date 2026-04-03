@@ -20,11 +20,9 @@ tags:
 keywords:
   - "free AI video generator"
   - "real-time video generation tool"
-  - "AI video software comparison"
-  - "best free video generation tools for developers"
-  - "how to generate videos with AI for free"
   - "AI video generator vs paid alternatives"
-  - "open source video generation"
+related_radar:
+  - "stable-diffusion"
 ---
 
 # AI Video Generation Just Hit Real-Time — We Tested It Against Paid Tools and It's Free

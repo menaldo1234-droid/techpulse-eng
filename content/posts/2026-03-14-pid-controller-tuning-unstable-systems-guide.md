@@ -19,11 +19,9 @@ tags:
 keywords:
   - "PID controller tuning unstable systems"
   - "Ziegler-Nichols tuning method"
-  - "process control stabilization techniques"
   - "PID parameter optimization"
-  - "chemical reactor temperature control"
-  - "feedback control system design"
-  - "oscillation damping methods"
+  - "process control stabilization techniques"
+related_radar: []
 ---
 
 # Tuning PID Controllers for Unstable Systems: A Step-by-Step Guide to Ziegler-Nichols and Modern Methods
@@ -137,7 +135,7 @@ while not critical_gain_found:
         critical_gain_found = True
     else:
         current_gain += gain_step
-```python
+```
 ### Calculating Controller Parameters
 
 Once critical values are identified:
@@ -179,7 +177,7 @@ Calculate controller gains:
 Kp = (1.2 × 45) / (20 × 0.10) = 27.0
 Ki = 27.0 / (2 × 20) = 0.675
 Kd = 27.0 × 20 / 0.5 = 1,080
-```python
+```
 ### Extracting System Parameters
 
 Analyze your response curve by identifying two critical points:
@@ -216,7 +214,7 @@ class RelayAutotuner:
         ki = 1.2 * magnitude / period
         kd = 0.075 * magnitude * period
         return kp, ki, kd
-```javascript
+```
 ### Frequency Response Analysis
 
 Bode plots and Nyquist diagrams transform abstract stability concepts into visual roadmaps. By sweeping input frequencies across your system, you observe magnitude and phase shifts—revealing where the controller might destabilize the loop. Gain margins and phase margins appear as measurable distances from instability, letting you fine-tune parameters while maintaining safety buffers.
@@ -248,7 +246,7 @@ optimal_gains = minimize(
     args=(plant, 1.0),
     method='Nelder-Mead'
 )
-```javascript
+```
 ### Method Comparison: Classical vs. Modern Approaches
 
 | **Aspect** | **Ziegler-Nichols** | **Relay Autotuning** | **Frequency Response** | **Optimization-Based** |
@@ -308,7 +306,7 @@ float compute_pid(PIDController *pid, float setpoint, float measured, float dt) 
     pid->previous_error = error;
     return output;
 }
-```python
+```
 #### Anti-Windup Protection
 
 Unstable systems are particularly vulnerable to integral windup—the integral term accumulates excessively when the output saturates. This creates sluggish recovery and overshoot.

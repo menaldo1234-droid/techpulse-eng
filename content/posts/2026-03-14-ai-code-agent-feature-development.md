@@ -21,11 +21,11 @@ tags:
 keywords:
   - "AI code agent"
   - "autonomous code generation"
-  - "how to build an AI coding agent"
-  - "AI agent vs direct prompting for code"
   - "AI-powered feature development"
-  - "agentic coding patterns"
   - "production AI code generation workflow"
+related_radar:
+  - "claude-code"
+  - "cursor"
 ---
 
 # I Built an AI Agent That Codes Entire Features — Here's How It Beats Claude for Production Work
@@ -56,7 +56,7 @@ This assumes you're comfortable with REST APIs, basic testing frameworks, and CI
 
 Let's get into how this actually works.
 
-## Section 1: Why General Models Fail at Feature Completion
+## Why General Models Fail at Feature Completion
 
 I've watched developers waste entire sprints waiting for a general LLM to produce a working feature. They paste a requirements doc, get back 300 lines of code, run it, and hit a wall. Database schema doesn't match the ORM. A library import fails because the version changed six months ago. Error handling is missing entirely. Then they spend three days debugging what should have taken three hours.
 
@@ -100,7 +100,7 @@ There's no way to automatically run generated code against your test suite, catc
 
 This is why I built a different approach — one that treats code generation as an iterative process, not a one-shot event.
 
-## Section 2: Agent Architecture: The Multi-Step Feedback Loop
+## Agent Architecture: The Multi-Step Feedback Loop
 
 Here's the real problem with most AI coding tools: they treat your entire feature request like a single black box. You ask for "add user authentication," the model hallucinates a 500-line file, and you spend three hours untangling it. My agent doesn't work that way.
 
@@ -150,7 +150,7 @@ Finally, the agent verifies that everything plays nicely with your existing syst
 
 The result? Code that's production-ready on the first pass, not a starting point for hours of cleanup.
 
-## Section 3: Context Extraction: Teaching the Agent Your Codebase
+## Context Extraction: Teaching the Agent Your Codebase
 
 Here's the real problem: you hand your AI agent a blank canvas and ask it to build a feature, and it'll confidently import libraries that don't exist, follow naming conventions that clash with your codebase, and generate database queries that don't match your schema. It hallucinates. Hard.
 
@@ -265,7 +265,7 @@ Read your `.env`, Docker configurations, and deployment specs. If you're running
 
 The agent that understands your constraints beats the one that doesn't. Every single time.
 
-## Section 4: Real-Time Validation: Catching Errors Before Humans See Them
+## Real-Time Validation: Catching Errors Before Humans See Them
 
 Here's the real problem: you ship code that passes your linter and runs locally, then production explodes because your database migration corrupts existing records or your API response doesn't match what the frontend expects. An AI agent that generates features needs to catch these before they ever reach your codebase.
 
@@ -334,7 +334,7 @@ For endpoints, I verify that request and response payloads match the API spec, e
 
 The difference is stark: without this layer, I'd spend 30% of review time on validation issues. With it, I'm reviewing actual logic and design, not hunting for typos and missing imports. The agent becomes genuinely reliable for production work.
 
-## Section 5: Integration Testing: Verifying Features Work End-to-End
+## Integration Testing: Verifying Features Work End-to-End
 
 Most agents I've tested generate code and call it done. They skip the part that actually matters: proving it works in production conditions. That's where my agent diverges hard.
 
@@ -412,7 +412,7 @@ Inverting the workflow — tests first, code second — forces the agent to thin
 
 The result? Features that hit production with confidence. No "it works on my machine" surprises. No 2am incident calls because the code didn't handle a timeout scenario that the agent's tests already caught.
 
-## Section 6: Handling Production Constraints and Edge Cases
+## Handling Production Constraints and Edge Cases
 
 Here's my honest take: most AI code generators fail in production because they optimize for "looks good in a demo" instead of "survives 3am on a Tuesday when everything's on fire." My agent handles this differently.
 
@@ -505,7 +505,7 @@ Input validation, output escaping, authentication checks—my agent generates th
 
 **Bottom line:** Claude gives you working code. My agent gives you code that survives production. That's the actual difference.
 
-## Section 7: Transparency and Developer Control
+## Transparency and Developer Control
 
 Here's the thing about most AI code generators: they hand you a feature and vanish. You get a blob of code. No explanation. No way to understand why it chose that library over another. No way to tweak one part without regenerating everything from scratch.
 
@@ -531,7 +531,7 @@ If you reject a component, the agent doesn't sulk. It re-examines the requiremen
 
 This approach cuts hallucination risk dramatically. When the agent knows you'll inspect every decision, it gets more careful.
 
-## Section 8: Specification-to-Deployment Pipeline
+## Specification-to-Deployment Pipeline
 
 The real bottleneck in feature delivery isn't writing code—it's writing *correct* code without constant back-and-forth. My agent solves this by treating feature specs like contracts, not suggestions.
 
@@ -622,7 +622,7 @@ The feature flag gates the upgrade endpoint. First 5% of users, then 25%, then 1
 
 This pipeline turns deployment from a nerve-wracking event into a controlled, reversible process. And that's why it beats Claude for production work—not because Claude can't code, but because it doesn't enforce the guardrails that separate hobby projects from systems people actually depend on.
 
-## Section 9: Practical Example – Building an Event Streaming Feature
+## Practical Example – Building an Event Streaming Feature
 
 I watched a team spend three days building event streaming infrastructure for a post creation feature. They nailed the happy path: publish an event, downstream services consume it, everything works. Then production hit at 2 AM. The queue service had a 30-second timeout they didn't account for. Their code hung. The API endpoint backed up. Cascading failures across four services. 20-minute incident, full postmortem, and a week of follow-up fixes.
 

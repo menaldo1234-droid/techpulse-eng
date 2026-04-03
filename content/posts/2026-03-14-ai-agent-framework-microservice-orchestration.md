@@ -21,11 +21,11 @@ tags:
 keywords:
   - "AI agent framework"
   - "microservice orchestration agents"
-  - "autonomous agent development"
-  - "how to orchestrate AI agents across microservices"
-  - "AI agent framework comparison"
   - "multi-agent system architecture"
   - "agent-based distributed systems"
+related_radar:
+  - "multi-agent"
+  - "langchain"
 ---
 
 # This Framework Just Became the New Standard for AI Agent Development — Developers Are Ditching Everything Else

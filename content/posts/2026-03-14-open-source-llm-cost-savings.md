@@ -20,11 +20,11 @@ tags:
 keywords:
   - "open-source LLM alternatives"
   - "free large language models production"
-  - "how to build chatbot without paid API"
-  - "open-source vs paid LLM comparison"
   - "cost-effective language model deployment"
   - "self-hosted LLM for chatbot applications"
-  - "reduce AI infrastructure costs engineering"
+related_radar:
+  - "llama"
+  - "fine-tuning"
 ---
 
 # I Just Built an App With the New Open-Source LLM Everyone's Talking About — Here's Why It Beats the Paid Models
@@ -55,7 +55,7 @@ You'll need some baseline knowledge to get value here: you should understand API
 
 Ready? Let's build something that actually makes economic sense.
 
-## Section 1: What Changed in Open-Source Model Architecture
+## What Changed in Open-Source Model Architecture
 
 Here's the real talk: two years ago, running a capable language model locally meant either accepting garbage quality or dropping $50K on a server rack. Now? A single consumer GPU can handle what used to require a data center. The shift isn't magic—it's three concrete engineering improvements that fundamentally changed the hardware economics.
 
@@ -119,7 +119,7 @@ The catch? You need to actually understand what you're optimizing for. Quantizat
 
 That's the next piece: how to actually evaluate whether these optimizations work for what you're building, and where the real gotchas hide.
 
-## Section 2: Infrastructure Patterns — Stateless vs. Stateful Inference
+## Infrastructure Patterns — Stateless vs. Stateful Inference
 
 Here's the thing nobody tells you when you're deploying open-source LLMs at scale: your infrastructure pattern choice matters way more than which model you picked. I spent three days debugging mysterious GPU timeouts before realizing I'd designed for the wrong traffic pattern entirely. Let me break down what I learned.
 
@@ -282,7 +282,7 @@ This pattern scales beautifully. You get stateful throughput with stateless flex
 
 The tradeoff? Slightly higher latency (queue wait time) and operational complexity (you're managing a queue system). But in my experience, that's a fair price for 10x better resource utilization and way easier deployments.
 
-## Section 3: The Resource Allocation Trap (Common Mistakes)
+## The Resource Allocation Trap (Common Mistakes)
 
 Here's where most teams hemorrhage money without realizing it: they build infrastructure for a ghost load that never actually arrives.
 
@@ -433,7 +433,7 @@ That team I mentioned? After they did this exercise, they cut their infrastructu
 
 The open-source LLM advantage here is huge: you can instrument everything, measure everything, and iterate without hitting rate limits or waiting for vendor support. Use that freedom.
 
-## Section 4: Observability and Monitoring — What Metrics Actually Matter
+## Observability and Monitoring — What Metrics Actually Matter
 
 ### Stop Watching GPU Percentage—It's Lying to You
 
@@ -533,7 +533,7 @@ alerts = {
 
 The difference between monitoring that matters and monitoring theater is specificity. Generic dashboards make you feel productive. Real metrics make you actually *be* productive.
 
-## Section 5: Scaling Strategies — Vertical vs. Horizontal and the Hidden Costs
+## Scaling Strategies — Vertical vs. Horizontal and the Hidden Costs
 
 Here's the brutal truth nobody tells you: **more GPUs doesn't always mean proportional speed gains**. I spent two weeks optimizing inference on this open-source LLM, and I watched a team confidently scale from one GPU to four servers. They got 3.2x throughput. Not 4x. Not even close.
 

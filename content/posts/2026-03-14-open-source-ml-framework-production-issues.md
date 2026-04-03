@@ -21,11 +21,10 @@ tags:
 keywords:
   - "open-source machine learning framework"
   - "ML framework production issues"
-  - "building apps with new ML frameworks"
-  - "machine learning framework comparison"
   - "how to evaluate new ML frameworks"
-  - "ML framework limitations and gotchas"
   - "production machine learning deployment"
+related_radar:
+  - "langchain"
 ---
 
 # I Built a Full App With the New Open-Source AI Framework Everyone's Talking About — Here's What Broke

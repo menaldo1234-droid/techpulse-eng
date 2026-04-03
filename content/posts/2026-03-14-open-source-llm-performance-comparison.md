@@ -19,12 +19,12 @@ tags:
   - "vendor-independence"
 keywords:
   - "open-source LLM alternatives"
-  - "LLM speed comparison proprietary vs open-source"
-  - "how to replace proprietary language models"
   - "self-hosted LLM performance benchmarks"
   - "reduce API costs with open-source models"
   - "LLM latency optimization techniques"
-  - "free language model alternatives to paid APIs"
+related_radar:
+  - "llama"
+  - "rag-pipelines"
 ---
 
 # The Open-Source LLM That's Finally Beating Proprietary Models on Speed (And It's Free)
@@ -69,7 +69,7 @@ You don't need ML expertise. You need to understand basic API design, containeri
 
 The shift happening right now is real. Teams with real constraints—tight budgets, data privacy requirements, latency-sensitive applications—are making the switch. Let's see how, and whether it makes sense for you.
 
-## Section 1: Why Speed Became the Battleground
+## Why Speed Became the Battleground
 
 ### The Latency Trap Nobody Talks About
 
@@ -193,7 +193,7 @@ That's why we're seeing a shift. Developers are asking: "What if I ran this loca
 
 It's not hard anymore. And that changes everything.
 
-## Section 2: The Architecture That Makes Speed Possible
+## The Architecture That Makes Speed Possible
 
 The speed difference comes down to one brutal fact: running a full-precision model is mathematically wasteful. You're storing 32-bit floats for every weight when most of that precision is noise. The open-source models winning right now attack this from multiple angles simultaneously.
 
@@ -263,7 +263,7 @@ The real win is combining all three: quantization (4-8x smaller), KV cache optim
 
 The next question is obvious: what's the actual accuracy tradeoff? Because there *is* one. Let's talk about where these models hold up and where they crack.
 
-## Section 3: Deployment Patterns for Local Inference
+## Deployment Patterns for Local Inference
 
 ### The Containerization Reality
 
@@ -490,7 +490,7 @@ Key decisions here:
 - **Separate readiness probe**: Service is "alive" but not "ready" until the model finishes loading. Prevents traffic until you're actually ready.
 - **Timeouts in env vars**: Make these configurable so you can tune without rebuilding.
 
-## Section 4: Batching, Caching, and Request Optimization
+## Batching, Caching, and Request Optimization
 
 ### Dynamic Batching: The 5-50ms Sweet Spot
 
@@ -599,7 +599,7 @@ These three techniques compound. Batching gives you 5-7x throughput. Caching sav
 
 The catch: you need to actually implement this. Most open-source inference servers have batching built in, but caching and coalescing require you to think about your request patterns. Spend a week profiling your actual traffic. You'll find patterns you didn't expect.
 
-## Section 5: Observability & Metrics That Matter
+## Observability & Metrics That Matter
 
 Most teams I've talked to think their LLM is slow, then spend weeks optimizing the model when the real bottleneck is sitting upstream in tokenization or queue wait time. You can't fix what you can't see, and that's where observability breaks down.
 
