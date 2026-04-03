@@ -13,10 +13,6 @@ tags:
   - "impedance-control"
   - "signal-integrity"
   - "high-speed-digital"
-  - "hardware-engineering"
-  - "intermediate-advanced"
-  - "design-methodology"
-  - "circuit-reliability"
 keywords:
   - "multi-layer PCB impedance control"
   - "high-speed PCB design"

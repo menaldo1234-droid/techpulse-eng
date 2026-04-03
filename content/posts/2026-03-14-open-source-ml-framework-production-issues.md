@@ -12,12 +12,7 @@ categories:
 tags:
   - "machine-learning"
   - "open-source-frameworks"
-  - "production-deployment"
-  - "software-engineering"
-  - "application-development"
-  - "intermediate-advanced"
   - "technical-evaluation"
-  - "lessons-learned"
 keywords:
   - "open-source machine learning framework"
   - "ML framework production issues"

@@ -10,13 +10,8 @@ categories:
   - "Technology"
 tags:
   - "devops"
-  - "career-transitions"
-  - "infrastructure-automation"
-  - "cloud-engineering"
-  - "job-market"
-  - "intermediate-advanced"
-  - "industry-analysis"
   - "platform-engineering"
+  - "cloud-engineering"
 keywords:
   - "DevOps jobs 2026"
   - "DevOps engineer career future"

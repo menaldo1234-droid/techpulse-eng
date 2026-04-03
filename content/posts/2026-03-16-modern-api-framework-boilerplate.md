@@ -12,10 +12,6 @@ tags:
   - "api-development"
   - "framework-comparison"
   - "backend-engineering"
-  - "software-architecture"
-  - "developer-productivity"
-  - "intermediate-advanced"
-  - "code-optimization"
   - "authentication-patterns"
 keywords:
   - "modern API framework"

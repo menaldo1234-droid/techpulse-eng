@@ -11,12 +11,7 @@ categories:
 tags:
   - "industrial-robotics"
   - "precision-manufacturing"
-  - "automated-assembly"
   - "tolerance-control"
-  - "quality-assurance"
-  - "advanced-manufacturing"
-  - "process-automation"
-  - "production-engineering"
 keywords:
   - "robotic precision manufacturing"
   - "automated assembly tolerance control"

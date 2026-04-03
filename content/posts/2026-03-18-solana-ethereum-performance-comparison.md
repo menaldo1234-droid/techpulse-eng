@@ -12,11 +12,7 @@ tags:
   - "solana"
   - "ethereum"
   - "blockchain"
-  - "distributed-systems"
   - "dapp-development"
-  - "intermediate"
-  - "performance-optimization"
-  - "infrastructure-comparison"
 keywords:
   - "Solana vs Ethereum performance"
   - "blockchain speed comparison"

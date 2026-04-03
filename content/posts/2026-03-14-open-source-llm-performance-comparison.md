@@ -10,13 +10,9 @@ categories:
   - "Artificial Intelligence"
 tags:
   - "large-language-models"
-  - "open-source-software"
   - "api-optimization"
-  - "cost-reduction"
-  - "production-deployment"
-  - "intermediate-advanced"
-  - "performance-benchmarking"
   - "vendor-independence"
+  - "performance-benchmarking"
 keywords:
   - "open-source LLM alternatives"
   - "self-hosted LLM performance benchmarks"

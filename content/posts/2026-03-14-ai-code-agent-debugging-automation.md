@@ -13,10 +13,6 @@ tags:
   - "ai-debugging"
   - "code-automation"
   - "webhook-debugging"
-  - "software-engineering"
-  - "production-troubleshooting"
-  - "intermediate-advanced"
-  - "developer-productivity"
   - "error-diagnosis"
 keywords:
   - "AI code debugging automation"

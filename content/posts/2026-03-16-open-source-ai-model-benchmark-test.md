@@ -12,10 +12,6 @@ tags:
   - "open-source-ai"
   - "model-benchmarking"
   - "llm-performance"
-  - "cost-optimization"
-  - "developer-tools"
-  - "intermediate-advanced"
-  - "production-deployment"
   - "inference-optimization"
 keywords:
   - "open-source AI model benchmark"

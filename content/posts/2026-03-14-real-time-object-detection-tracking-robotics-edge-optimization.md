@@ -10,13 +10,10 @@ categories:
   - "Artificial Intelligence"
   - "Technology"
 tags:
-  - "object-detection"
-  - "edge-computing"
   - "computer-vision"
+  - "edge-computing"
+  - "object-detection"
   - "autonomous-robotics"
-  - "real-time-processing"
-  - "vision-optimization"
-  - "embedded-systems"
 keywords:
   - "real-time object detection robotics"
   - "edge device computer vision optimization"

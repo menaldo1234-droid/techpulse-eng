@@ -10,13 +10,8 @@ categories:
   - "Artificial Intelligence"
 tags:
   - "large-language-models"
-  - "open-source-software"
   - "chatbot-development"
-  - "cost-optimization"
   - "ai-infrastructure"
-  - "intermediate-advanced"
-  - "production-deployment"
-  - "devops-practices"
 keywords:
   - "open-source LLM alternatives"
   - "free large language models production"

@@ -13,11 +13,7 @@ tags:
   - "ai-agents"
   - "code-generation"
   - "llm-engineering"
-  - "software-architecture"
-  - "developer-productivity"
-  - "intermediate-advanced"
   - "agentic-design"
-  - "automation"
 keywords:
   - "AI code agent"
   - "autonomous code generation"

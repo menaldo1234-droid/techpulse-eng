@@ -12,11 +12,6 @@ tags:
   - "open-source-ai"
   - "language-models"
   - "local-deployment"
-  - "software-engineering"
-  - "cost-optimization"
-  - "intermediate-advanced"
-  - "performance-benchmarking"
-  - "developer-productivity"
 keywords:
   - "open-source AI model"
   - "free AI alternative to paid models"

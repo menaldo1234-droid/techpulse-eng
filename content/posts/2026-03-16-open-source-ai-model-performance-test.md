@@ -11,11 +11,7 @@ categories:
 tags:
   - "open-source-ai"
   - "language-models"
-  - "model-benchmarking"
   - "inference-optimization"
-  - "cost-reduction"
-  - "developer-tools"
-  - "performance-testing"
   - "local-deployment"
 keywords:
   - "open-source AI model"

@@ -12,12 +12,7 @@ categories:
 tags:
   - "ai-code-generation"
   - "open-source-tools"
-  - "developer-productivity"
-  - "software-engineering"
-  - "cost-optimization"
-  - "intermediate-advanced"
   - "tool-comparison"
-  - "workflow-automation"
 keywords:
   - "open-source AI code assistant"
   - "free AI coding tools comparison"

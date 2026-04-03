@@ -11,13 +11,8 @@ categories:
   - "Developer Tools"
 tags:
   - "ai-agents"
-  - "microservices"
-  - "orchestration"
-  - "system-architecture"
-  - "production-engineering"
-  - "intermediate-advanced"
+  - "microservice-orchestration"
   - "distributed-systems"
-  - "autonomous-systems"
 keywords:
   - "AI agent framework"
   - "microservice orchestration agents"

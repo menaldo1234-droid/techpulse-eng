@@ -11,12 +11,7 @@ categories:
 tags:
   - "ai-video-generation"
   - "generative-ai"
-  - "developer-tools"
-  - "software-development"
-  - "cost-optimization"
-  - "intermediate"
   - "tool-evaluation"
-  - "production-ready"
 keywords:
   - "free AI video generator"
   - "real-time video generation tool"

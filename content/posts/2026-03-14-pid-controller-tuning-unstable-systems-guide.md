@@ -10,11 +10,7 @@ categories:
   - "Technology"
 tags:
   - "PID-tuning"
-  - "process-control"
-  - "system-stability"
   - "control-engineering"
-  - "feedback-loops"
-  - "industrial-automation"
   - "oscillation-damping"
 keywords:
   - "PID controller tuning unstable systems"
