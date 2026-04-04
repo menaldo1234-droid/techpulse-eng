@@ -305,12 +305,10 @@
       // Entrance animation
       blipsGroup.selectAll('.blip')
         .style('opacity', 0)
-        .style('transform', 'scale(0)')
         .transition()
         .duration(600)
         .delay((d, i) => i * 30)
-        .style('opacity', 1)
-        .style('transform', 'scale(1)');
+        .style('opacity', 1);
     }
 
     showTooltip(event, blip) {
