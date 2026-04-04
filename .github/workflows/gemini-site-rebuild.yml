@@ -1,0 +1,325 @@
+name: Gemini Site Rebuild
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "Which task to run (1-5 or all)"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - "all"
+          - "1-homepage"
+          - "2-posts"
+          - "3-radar"
+          - "4-about"
+          - "5-darkmode"
+
+jobs:
+  rebuild-task-1:
+    if: ${{ inputs.task == 'all' || inputs.task == '1-homepage' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: TASK 1 — Homepage + Navigation
+        uses: google-github-actions/run-gemini-cli@v1
+        with:
+          prompt: |
+            Read GEMINI.md first. Follow all rules.
+
+            You are redesigning techblips.com (Hugo + PaperMod).
+            Design reference: Vercel Blog, Linear Blog, Raycast Blog.
+            Colors: #6c5ce7 (purple), #0ea5e9 (blue), #f59e0b (amber), #10b981 (green)
+            Font: Inter (already loaded)
+
+            NEVER touch themes/ folder.
+            NEVER use {{ define "head" }} blocks.
+
+            DO THIS NOW — TASK 1: Homepage + Navigation
+
+            1. hugo.toml navigation:
+               - Remove ALL emojis from menu names
+               - Keep only 4 menus: Home | Blog | Radar | About
+               - Remove AI, Dev Tools, Trending category direct links
+
+            2. Homepage hero section:
+               - Update homeInfoParams in hugo.toml OR create layouts/index.html override
+               - Big impactful title + subtitle
+               - 2 CTA buttons (Latest Posts, Tech Radar)
+               - Subtle gradient background
+               - Professional and clean
+
+            3. Post cards in assets/css/extended/custom.css:
+               - Card grid layout (desktop 2 columns, mobile 1 column)
+               - Hover: lift up with shadow
+               - Category badge, date, reading time
+               - Clean spacing
+
+            4. Dark mode support for all changes
+            5. Mobile responsive (860px breakpoint)
+
+            After changes, run: hugo --minify
+            If build succeeds, you're done with this task.
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Build test
+        run: hugo --minify
+
+      - name: Push changes
+        run: |
+          git config user.name "gemini-bot"
+          git config user.email "gemini-bot@techblips.com"
+          git add -A
+          git diff --cached --quiet && echo "No changes" || (git commit -m "redesign: homepage + navigation (Task 1)" && git push)
+
+  rebuild-task-2:
+    if: ${{ inputs.task == 'all' || inputs.task == '2-posts' }}
+    needs: [rebuild-task-1]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: TASK 2 — Post Detail Pages
+        uses: google-github-actions/run-gemini-cli@v1
+        with:
+          prompt: |
+            Read GEMINI.md first. Follow all rules.
+            NEVER touch themes/ folder.
+
+            DO THIS NOW — TASK 2: Post Detail Page Redesign
+
+            1. Post body in assets/css/extended/custom.css:
+               - max-width: 720px centered
+               - line-height: 1.8
+               - Good paragraph spacing
+
+            2. Code blocks:
+               - Dark background, border-radius 12px
+               - Language label on top
+               - Inline code: accent background
+
+            3. Typography:
+               - h2: bold, bottom border
+               - h3: accent color
+               - blockquote: left border + light background
+               - List spacing, link hover
+
+            4. layouts/partials/author-card.html:
+               - Replace inline styles with CSS classes
+               - Avatar, name, description
+               - Hover shadow effect
+
+            5. Post footer: tags, prev/next nav, share buttons
+
+            6. Dark mode + mobile for all changes
+
+            After changes, run: hugo --minify
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Build test
+        run: hugo --minify
+
+      - name: Push changes
+        run: |
+          git config user.name "gemini-bot"
+          git config user.email "gemini-bot@techblips.com"
+          git add -A
+          git diff --cached --quiet && echo "No changes" || (git commit -m "redesign: post detail pages (Task 2)" && git push)
+
+  rebuild-task-3:
+    if: ${{ inputs.task == 'all' || inputs.task == '3-radar' }}
+    needs: [rebuild-task-2]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: TASK 3 — Radar Page
+        uses: google-github-actions/run-gemini-cli@v1
+        with:
+          prompt: |
+            Read GEMINI.md first. Follow all rules.
+            NEVER touch themes/ folder.
+
+            DO THIS NOW — TASK 3: Radar Page Visual Upgrade
+
+            Files to modify: static/css/radar.css, static/js/radar.js (carefully), layouts/radar/single.html
+
+            1. Blip interactions:
+               - Hover tooltip (name + category + ring)
+               - Hover: blip scales up slightly
+               - Click feedback
+
+            2. Sidebar:
+               - Card-style blip list
+               - Quadrant filter buttons (color matched)
+               - Ring filter (Adopt/Trial/Assess/Hold)
+
+            3. Layout: radar:sidebar = 7:3, quadrant label readability
+
+            4. Mobile: sidebar below radar
+
+            5. Dark mode for all radar elements
+
+            After changes, run: hugo --minify
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Build test
+        run: hugo --minify
+
+      - name: Push changes
+        run: |
+          git config user.name "gemini-bot"
+          git config user.email "gemini-bot@techblips.com"
+          git add -A
+          git diff --cached --quiet && echo "No changes" || (git commit -m "redesign: radar page (Task 3)" && git push)
+
+  rebuild-task-4:
+    if: ${{ inputs.task == 'all' || inputs.task == '4-about' }}
+    needs: [rebuild-task-3]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: TASK 4 — About + Polish
+        uses: google-github-actions/run-gemini-cli@v1
+        with:
+          prompt: |
+            Read GEMINI.md first. Follow all rules.
+            NEVER touch themes/ folder.
+
+            DO THIS NOW — TASK 4: About Page + Site Polish
+
+            1. content/about.md: rewrite professionally
+               - TechBlips intro: AI & tech trends media
+               - Henry intro: brief
+               - Site purpose and value
+               - Contact section
+
+            2. Search page: #searchbox style improvement
+
+            3. Category/tag pages: .terms-tags style, color coding
+
+            4. Create layouts/404.html: simple design + home button
+
+            5. Scroll progress bar: .progress-bar CSS improvement
+
+            After changes, run: hugo --minify
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Build test
+        run: hugo --minify
+
+      - name: Push changes
+        run: |
+          git config user.name "gemini-bot"
+          git config user.email "gemini-bot@techblips.com"
+          git add -A
+          git diff --cached --quiet && echo "No changes" || (git commit -m "redesign: about page + polish (Task 4)" && git push)
+
+  rebuild-task-5:
+    if: ${{ inputs.task == 'all' || inputs.task == '5-darkmode' }}
+    needs: [rebuild-task-4]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: TASK 5 — Dark Mode + Responsive QA
+        uses: google-github-actions/run-gemini-cli@v1
+        with:
+          prompt: |
+            Read GEMINI.md first. Follow all rules.
+            NEVER touch themes/ folder.
+
+            DO THIS NOW — TASK 5: Final Dark Mode + Responsive QA
+
+            1. Dark mode [data-theme=dark]:
+               - ALL components: cards, hero, code blocks, nav, radar, footer
+               - Smooth transition on toggle
+               - No flash of wrong theme
+
+            2. Mobile (max-width: 860px):
+               - Cards: 1 column
+               - Nav: mobile menu
+               - Hero: smaller font
+               - Radar: touch friendly
+               - All padding/margins adjusted
+
+            3. Cleanup:
+               - Remove unused CSS
+               - Remove unnecessary animations
+               - Verify hugo --minify builds clean
+
+            After changes, run: hugo --minify
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Build test
+        run: hugo --minify
+
+      - name: Push changes
+        run: |
+          git config user.name "gemini-bot"
+          git config user.email "gemini-bot@techblips.com"
+          git add -A
+          git diff --cached --quiet && echo "No changes" || (git commit -m "redesign: dark mode + responsive QA (Task 5)" && git push)
