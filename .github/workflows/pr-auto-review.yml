@@ -6,6 +6,7 @@ on:
 
 jobs:
   review:
+    if: ${{ github.actor != 'cloudflare-workers-and-pages[bot]' && github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
