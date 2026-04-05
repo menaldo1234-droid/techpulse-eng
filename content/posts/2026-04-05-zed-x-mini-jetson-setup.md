@@ -1,77 +1,80 @@
 ---
-title: "ZED X Mini on Jetson: What Nobody Tells You"
+title: "ZED X Mini + Jetson: 1개월 삽질 끝에 찾은 정답"
 date: 2026-04-05
 draft: false
-tags: ["jetson", "zed", "gmsl2", "robotics", "embedded"]
-description: "1 month of failures across two boards, three JetPack versions, and one CSI cable that should never have existed — here's the working setup."
+tags: ["jetson", "zed-camera", "robotics"]
+description: "ZED X Mini를 Jetson Orin NX에 연결하는 데 1개월 걸렸다. 안 되는 조합과 되는 조합, 바로 정리."
 author: "Byeongjun"
 ---
 
-I spent over a month trying to get the ZED X Mini working on a Jetson-based system. The documentation looks clean. The SDK is well-maintained. And yet, almost nothing worked the way I expected. This post is everything I wish I'd known before starting.
+## 결론부터
 
-## 1. The board compatibility trap
+| | 안 됨 | 됨 |
+|---|---|---|
+| **보드** | reComputer J4012 (15핀 CSI) | Waveshare Orin NX (22핀 CSI) |
+| **JetPack** | 6.1, 6.2.0 | **6.2.1** |
+| **케이블** | 22→15핀 어댑터 | 네이티브 22핀 직결 |
 
-My first attempt used a **reComputer J4012** from Seeed Studio — a Jetson Orin NX-based board that, on paper, seemed perfectly fine. It runs Jetson Linux, it has a CSI interface, and the ZED X Mini connects via GMSL2 with a capture card.
+> 이 조합 외에는 전부 실패했다. 에러도 안 뜬다. 그냥 카메라가 없는 것처럼 동작한다.
 
-> **Hard lesson:** The ZED X Mini and the Stereolabs GMSL2 capture card have implicit hardware dependencies that go beyond "does it run Jetson Linux." The reComputer J4012's CSI implementation did not play nicely with the ZED Link capture card — at all.
+<!-- 여기에 작동 성공 사진/영상 삽입 -->
+<!-- ![ZED X Mini 카메라 피드 성공](/images/zed-working.jpg) -->
 
-The symptom was silent: no error messages, no kernel panics. Just nothing. Running `i2cdetect` on every bus returned empty tables. The camera simply did not exist as far as the system was concerned.
+---
 
-## 2. The CSI cable that goes nowhere
+## 안 되는 것들 (시간 아끼세요)
 
-The reComputer J4012 uses a **15-pin CSI connector**, while the standard GMSL2 capture card uses a 22-pin interface. So I ordered a 22-to-15 FPC adapter cable and tried to bridge the gap.
+### 1. reComputer J4012 + CSI 어댑터 케이블
 
-> **Don't do this.** The 22-to-15 CSI adapter cable does not work. It's not a pin-count mismatch you can cable your way around — the signal routing and lane assignments differ between connector generations. Even if the physical connection seats correctly, the I2C control channel for the GMSL2 deserializer won't come up.
-
-I spent considerable time probing the I2C buses with different address scans (`i2cdetect -y -r 9`, `-r 10`, etc.) hoping to see the deserializer enumerate. Nothing appeared. The adapter cable is a dead end.
-
-## 3. The JetPack version roulette
-
-After accepting that the J4012 wasn't going to work, I switched to a board with a proper **22-pin CSI connector** and DisplayPort output — closer to the official NVIDIA Orin NX developer kit layout.
-
-The community consensus at the time was that ZED SDK and ZED Link only support up to JetPack 6.1. So I spent two weeks flashing and reflashing 6.1. It never worked — the flashing process itself kept failing.
-
-> **The myth:** "ZED X Mini only works up to JetPack 6.1" — this is wrong, or at least outdated.
-
-Out of frustration, I tried **JetPack 6.2.2**. It flashed successfully. Then I tried 6.2.0 — it failed. Then **6.2.1 — it worked.** I've been on 6.2.1 since, without issues.
-
-The working combination:
-
-| Component | Version |
-|-----------|---------|
-| JetPack | 6.2.1 (L4T 36.4.0) |
-| ZED SDK | 5.2.1 |
-| ZED Link | 1.4.0-L4T36.4.0 |
-| Board | Waveshare Jetson Orin NX carrier (22-pin CSI) |
-
-## 4. The moment it works: i2cdetect
-
-After flashing JetPack 6.2.1 and installing ZED Link, I ran `i2cdetect` again. This time, addresses actually appeared on the bus.
+15핀 CSI 보드에 22→15 어댑터 끼우면 물리적으로 꽂히긴 한다. **하지만 I2C 버스에 아무것도 안 잡힌다.**
 
 ```bash
 sudo i2cdetect -y -r 9
+# → 전부 빈칸. 카메라가 존재하지 않음.
 ```
 
-Addresses on the I2C bus = the GMSL2 deserializer is alive. This is the first real confirmation that the capture card and camera are communicating. If you see this, you're past the hardware barrier.
+핀 수 차이가 아니라 **시그널 라우팅 자체가 다르다.** 어댑터로 해결 불가.
 
-From there, launching ZED Explorer immediately showed the camera feed. No additional configuration needed.
+### 2. JetPack 6.1
 
-## 5. Final working stack
+커뮤니티에서 "ZED X는 6.1까지만 지원"이라고 하는데 **틀렸다.** 6.1은 플래싱 자체가 계속 실패했다.
+
+---
+
+## 되는 것 (이대로 하세요)
+
+### 최종 스택
+
+| 컴포넌트 | 버전 |
+|----------|------|
+| JetPack | **6.2.1** (L4T 36.4.0) |
+| ZED SDK | 5.2.1 |
+| ZED Link | 1.4.0-L4T36.4.0 |
+| 보드 | 22핀 CSI 네이티브 지원 보드 |
+
+### 설치 (3줄)
 
 ```bash
 sudo apt install zed-link
 sudo apt install zed-sdk
-zed-explorer  # verify camera feed
+zed-explorer  # 카메라 피드 확인
 ```
 
-**Summary of what actually works:**
-- Use a board with a **native 22-pin CSI connector** (not adapted)
-- Flash **JetPack 6.2.1** via SDK Manager
-- Install ZED SDK 5.2.1 + ZED Link 1.4.0-L4T36.4.0
-- Skip JetPack 6.1 entirely — the community reports are outdated
+### 성공 확인
 
-The reComputer J4012 and the 22-to-15 CSI adapter are not viable paths. If you're starting fresh, go directly to 6.2.1.
+```bash
+sudo i2cdetect -y -r 9
+# → 주소가 보이면 GMSL2 디시리얼라이저 연결 성공
+```
+
+`i2cdetect`에서 주소가 보이는 순간이 **하드웨어 연결 성공의 첫 신호**다. 그 다음 `zed-explorer` 실행하면 바로 영상이 뜬다.
+
+<!-- 여기에 i2cdetect 성공 스크린샷 삽입 -->
+<!-- ![i2cdetect 결과](/images/i2cdetect-success.png) -->
+
+<!-- 여기에 zed-explorer 카메라 피드 영상 삽입 -->
+<!-- {{< youtube "VIDEO_ID" >}} -->
 
 ---
 
-*This post documents a real integration attempt on research robotics hardware. Hardware was purchased and tested independently — no affiliation with Stereolabs or NVIDIA.*
+*직접 구매하고 테스트한 연구용 로보틱스 하드웨어 기록. Stereolabs, NVIDIA와 무관.*
