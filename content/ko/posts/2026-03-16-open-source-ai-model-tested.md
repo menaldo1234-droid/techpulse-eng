@@ -179,6 +179,6 @@ async def health_check():
 
 ## 관련 글
 
-- [Free Open-Source AI Model: Speed & Performance Tested](/posts/open-source-ai-model-benchmark-test/)
-- [Open-Source ML Framework: What Actually Broke in Production](/posts/open-source-ml-framework-production-issues/)
-- [Critical Vulnerability Fix for Developers -- 5-Minute Patch](/posts/vulnerability-fix-5-minute-patch/)
+- [AI 에이전트 프레임워크: 마이크로서비스 오케스트레이션의 새로운 표준](/ko/posts/ai-agent-framework-microservice-orchestration/)
+- [오픈소스 ML 프레임워크: 프로덕션에서 실제로 깨진 것들](/ko/posts/open-source-ml-framework-production-issues/)
+- [개발자를 위한 긴급 취약점 수정 -- 5분 패치](/ko/posts/vulnerability-fix-5-minute-patch/)

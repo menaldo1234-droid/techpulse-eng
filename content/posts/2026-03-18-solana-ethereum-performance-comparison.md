@@ -6,7 +6,6 @@ slug: "solana-ethereum-performance-comparison"
 draft: false
 author: "Henry"
 categories:
-  - "Artificial Intelligence"
   - "Technology"
 tags:
   - "solana"

@@ -159,6 +159,6 @@ print(f"p95: {results['p95_ms']:.0f}ms | throughput: {results['avg_throughput']:
 
 ## 관련 글
 
-- [AI Agent Framework: New Standard for Microservice Orchestration](/posts/ai-agent-framework-microservice-orchestration/)
-- [Open-Source ML Framework: What Actually Broke in Production](/posts/open-source-ml-framework-production-issues/)
-- [AI Code Agent: Build Features Faster Than Direct Prompting](/posts/ai-code-agent-feature-development/)
+- [AI 에이전트 프레임워크: 마이크로서비스 오케스트레이션의 새로운 표준](/ko/posts/ai-agent-framework-microservice-orchestration/)
+- [오픈소스 ML 프레임워크: 프로덕션에서 실제로 깨진 것들](/ko/posts/open-source-ml-framework-production-issues/)
+- [AI 코드 에이전트: 직접 프롬프팅보다 빠른 기능 개발](/ko/posts/ai-code-agent-feature-development/)

@@ -143,6 +143,6 @@ async def get_status(request_id: str):
 
 ## 관련 글
 
-- [Real-Time Object Detection and Tracking in Robotics: Optimizing Computer Vision Pipelines for Edge Devices](/posts/real-time-object-detection-tracking-robotics-edge-optimization/)
-- [Free Open-Source AI Model: Speed & Performance Tested](/posts/open-source-ai-model-benchmark-test/)
-- [AI Agent Framework: New Standard for Microservice Orchestration](/posts/ai-agent-framework-microservice-orchestration/)
+- [로봇 실시간 객체 감지 및 추적: 엣지 디바이스용 컴퓨터 비전 파이프라인 최적화](/ko/posts/real-time-object-detection-tracking-robotics-edge-optimization/)
+- [무료 오픈소스 AI 모델: 속도 및 성능 테스트](/ko/posts/open-source-ai-model-benchmark-test/)
+- [AI 에이전트 프레임워크: 마이크로서비스 오케스트레이션의 새로운 표준](/ko/posts/ai-agent-framework-microservice-orchestration/)

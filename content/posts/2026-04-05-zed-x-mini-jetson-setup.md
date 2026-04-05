@@ -1,80 +1,82 @@
 ---
-title: "ZED X Mini + Jetson: 1개월 삽질 끝에 찾은 정답"
+title: "ZED X Mini + Jetson: The Setup That Actually Works"
 date: 2026-04-05
 draft: false
 tags: ["jetson", "zed-camera", "robotics"]
-description: "ZED X Mini를 Jetson Orin NX에 연결하는 데 1개월 걸렸다. 안 되는 조합과 되는 조합, 바로 정리."
-author: "Byeongjun"
+description: "Spent a month getting ZED X Mini working on Jetson Orin NX. Here's the exact combination that works and everything I ruled out."
+author: "Henry"
+categories:
+  - "Technology"
 ---
 
-## 결론부터
+## Bottom Line
 
-| | 안 됨 | 됨 |
+| | Doesn't Work | Works |
 |---|---|---|
-| **보드** | reComputer J4012 (15핀 CSI) | Waveshare Orin NX (22핀 CSI) |
+| **Board** | reComputer J4012 (15-pin CSI) | Waveshare Orin NX (22-pin CSI) |
 | **JetPack** | 6.1, 6.2.0 | **6.2.1** |
-| **케이블** | 22→15핀 어댑터 | 네이티브 22핀 직결 |
+| **Cable** | 22→15-pin adapter | Native 22-pin direct connection |
 
-> 이 조합 외에는 전부 실패했다. 에러도 안 뜬다. 그냥 카메라가 없는 것처럼 동작한다.
+> Everything outside this combination failed silently. No errors. The camera just doesn't exist.
 
-<!-- 여기에 작동 성공 사진/영상 삽입 -->
-<!-- ![ZED X Mini 카메라 피드 성공](/images/zed-working.jpg) -->
+<!-- Insert working camera feed photo/video here -->
+<!-- ![ZED X Mini camera feed working](/images/zed-working.jpg) -->
 
 ---
 
-## 안 되는 것들 (시간 아끼세요)
+## What Doesn't Work (Save Yourself the Time)
 
-### 1. reComputer J4012 + CSI 어댑터 케이블
+### 1. reComputer J4012 + CSI Adapter Cable
 
-15핀 CSI 보드에 22→15 어댑터 끼우면 물리적으로 꽂히긴 한다. **하지만 I2C 버스에 아무것도 안 잡힌다.**
+The 22→15 adapter fits physically into a 15-pin CSI board. **But nothing shows up on the I2C bus.**
 
 ```bash
 sudo i2cdetect -y -r 9
-# → 전부 빈칸. 카메라가 존재하지 않음.
+# → All empty. Camera doesn't exist.
 ```
 
-핀 수 차이가 아니라 **시그널 라우팅 자체가 다르다.** 어댑터로 해결 불가.
+The issue isn't the pin count difference — **the signal routing is fundamentally different.** No adapter fixes this.
 
 ### 2. JetPack 6.1
 
-커뮤니티에서 "ZED X는 6.1까지만 지원"이라고 하는데 **틀렸다.** 6.1은 플래싱 자체가 계속 실패했다.
+Community posts claim "ZED X only supports up to 6.1" — **wrong.** Flashing 6.1 kept failing entirely on my hardware.
 
 ---
 
-## 되는 것 (이대로 하세요)
+## What Works (Follow This Exactly)
 
-### 최종 스택
+### Final Stack
 
-| 컴포넌트 | 버전 |
-|----------|------|
+| Component | Version |
+|-----------|---------|
 | JetPack | **6.2.1** (L4T 36.4.0) |
 | ZED SDK | 5.2.1 |
 | ZED Link | 1.4.0-L4T36.4.0 |
-| 보드 | 22핀 CSI 네이티브 지원 보드 |
+| Board | Native 22-pin CSI board |
 
-### 설치 (3줄)
+### Install (3 Commands)
 
 ```bash
 sudo apt install zed-link
 sudo apt install zed-sdk
-zed-explorer  # 카메라 피드 확인
+zed-explorer  # verify camera feed
 ```
 
-### 성공 확인
+### Verify It's Working
 
 ```bash
 sudo i2cdetect -y -r 9
-# → 주소가 보이면 GMSL2 디시리얼라이저 연결 성공
+# → Addresses visible = GMSL2 deserializer connected successfully
 ```
 
-`i2cdetect`에서 주소가 보이는 순간이 **하드웨어 연결 성공의 첫 신호**다. 그 다음 `zed-explorer` 실행하면 바로 영상이 뜬다.
+When `i2cdetect` shows addresses, that's **the first sign your hardware connection succeeded.** Run `zed-explorer` next and you should see live video immediately.
 
-<!-- 여기에 i2cdetect 성공 스크린샷 삽입 -->
-<!-- ![i2cdetect 결과](/images/i2cdetect-success.png) -->
+<!-- Insert i2cdetect success screenshot here -->
+<!-- ![i2cdetect output](/images/i2cdetect-success.png) -->
 
-<!-- 여기에 zed-explorer 카메라 피드 영상 삽입 -->
+<!-- Insert zed-explorer camera feed video here -->
 <!-- {{< youtube "VIDEO_ID" >}} -->
 
 ---
 
-*직접 구매하고 테스트한 연구용 로보틱스 하드웨어 기록. Stereolabs, NVIDIA와 무관.*
+*Personal hardware notes from robotics research. No affiliation with Stereolabs or NVIDIA.*
