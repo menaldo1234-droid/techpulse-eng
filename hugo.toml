@@ -1,14 +1,76 @@
 baseURL = "https://techblips.com/"
-languageCode = "en-us"
 title = "TechBlips"
 theme = "PaperMod"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
 [pagination]
   pagerSize = 10
+
+[languages]
+  [languages.en]
+    languageName = "EN"
+    weight = 1
+    languageCode = "en-us"
+    [languages.en.params]
+      description = "AI, tech trends, and the future — explained fast."
+      [languages.en.params.homeInfoParams]
+        Title = "The Pulse of Modern Engineering"
+        Content = "Deep dives into AI, high-performance infrastructure, and the tools shaping the future of software."
+    [[languages.en.menu.main]]
+      identifier = "home"
+      name = "Home"
+      url = "/"
+      weight = 10
+    [[languages.en.menu.main]]
+      identifier = "blog"
+      name = "Blog"
+      url = "/posts/"
+      weight = 20
+    [[languages.en.menu.main]]
+      identifier = "radar"
+      name = "Radar"
+      url = "/radar/current/"
+      weight = 30
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "About"
+      url = "/about/"
+      weight = 40
+
+  [languages.ko]
+    languageName = "KO"
+    weight = 2
+    languageCode = "ko-kr"
+    [languages.ko.params]
+      description = "AI, 테크 트렌드, 미래 기술 — 빠르고 핵심만."
+      [languages.ko.params.homeInfoParams]
+        Title = "테크의 핵심을 빠르게"
+        Content = "AI, 고성능 인프라, 소프트웨어의 미래를 바꾸는 도구들. 쓸데없는 말 빼고 핵심만."
+    [[languages.ko.menu.main]]
+      identifier = "home"
+      name = "홈"
+      url = "/ko/"
+      weight = 10
+    [[languages.ko.menu.main]]
+      identifier = "blog"
+      name = "블로그"
+      url = "/ko/posts/"
+      weight = 20
+    [[languages.ko.menu.main]]
+      identifier = "radar"
+      name = "레이더"
+      url = "/radar/current/"
+      weight = 30
+    [[languages.ko.menu.main]]
+      identifier = "about"
+      name = "소개"
+      url = "/ko/about/"
+      weight = 40
 
 [params]
   mainSections = ["posts"]
   env = "production"
-  description = "AI, tech trends, and the future — explained fast. Quick tech blips on Claude updates, breakthrough tools, and the tech that matters."
   author = "Henry"
   ShowReadingTime = true
   ShowShareButtons = true
@@ -20,11 +82,6 @@ theme = "PaperMod"
   comments = false
   defaultTheme = "light"
   disableThemeToggle = false
-
-  [params.homeInfoParams]
-    Title = "The Pulse of Modern Engineering"
-    Content = "Deep dives into AI, high-performance infrastructure, and the tools shaping the future of software. No fluff, just the engineering that matters."
-
 
   [params.label]
     text = "TechBlips"
@@ -42,28 +99,6 @@ theme = "PaperMod"
   isCaseSensitive = false
   shouldSort = true
   threshold = 0.4
-
-[menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
-    weight = 10
-  [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    url = "/posts/"
-    weight = 20
-  [[menu.main]]
-    identifier = "radar"
-    name = "Radar"
-    url = "/radar/current/"
-    weight = 30
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    weight = 40
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
