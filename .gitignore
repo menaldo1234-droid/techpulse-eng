@@ -1,11 +1,4 @@
-# Astro
 node_modules/
+.next/
 dist/
-.astro/
-
-# Hugo (legacy)
-resources/
-.hugo_build.lock
-
-# OS
 .DS_Store

@@ -1,0 +1,48 @@
+export const locales = ['en', 'ko'] as const;
+export type Locale = (typeof locales)[number];
+export const defaultLocale: Locale = 'en';
+
+export const t = {
+  en: {
+    home: 'Home',
+    study: 'Study',
+    about: 'About',
+    heroTitle: 'Engineer\nStudy',
+    heroDesc: 'Learning by doing. STM32, RTOS, PCB, embedded systems — studied from scratch, recorded on YouTube, documented here.',
+    startLearning: 'Start Learning',
+    latest: 'Latest',
+    comingSoon: 'First study session coming soon.',
+    readMore: 'Read more',
+    builtBy: 'Built by Henry.',
+    aboutTitle: "Hey, I'm Henry.",
+    aboutP1: "I'm an engineer who learns by building.",
+    aboutP2: "TechBlips started as a tech blog, but I realized something: the internet doesn't need more AI-generated summaries. It needs real people documenting real learning.",
+    aboutWhat: 'What this is now',
+    aboutWhatDesc: 'Engineer Study — I pick a topic (STM32, RTOS, PCB design, embedded systems), study it from scratch, and document the entire process.',
+    aboutWhy: 'Why this format',
+    aboutWhyDesc: "I'm not an expert teaching down. I'm an engineer learning in public. If you're studying the same topics, you'll find a study partner here — not a lecturer.",
+    studyLog: 'Study Log',
+    studyLogDesc: 'Real engineering topics studied from scratch, documented as we go.',
+  },
+  ko: {
+    home: '홈',
+    study: '스터디',
+    about: '소개',
+    heroTitle: '엔지니어\n스터디',
+    heroDesc: '직접 공부하며 기록합니다. STM32, RTOS, PCB, 임베디드 — 유튜브 영상 + 정리글로 함께 배워요.',
+    startLearning: '스터디 시작',
+    latest: '최신 글',
+    comingSoon: '첫 스터디 세션 준비 중입니다.',
+    readMore: '더 보기',
+    builtBy: 'Built by Henry.',
+    aboutTitle: '안녕하세요, Henry입니다.',
+    aboutP1: '직접 만들면서 배우는 엔지니어입니다.',
+    aboutP2: 'TechBlips는 원래 테크 블로그로 시작했지만 깨달았습니다 — 인터넷에 AI가 만든 요약글은 이미 넘쳐납니다. 진짜 필요한 건 실제로 공부하는 사람의 기록입니다.',
+    aboutWhat: '지금은 이렇게 합니다',
+    aboutWhatDesc: '엔지니어 스터디 — 주제를 정하고 (STM32, RTOS, PCB 설계, 임베디드 시스템), 처음부터 공부하면서 전 과정을 기록합니다.',
+    aboutWhy: '왜 이런 형식인가',
+    aboutWhyDesc: '전문가가 가르치는 게 아닙니다. 엔지니어가 공개적으로 공부하는 겁니다. 같은 주제를 공부하고 있다면 여기서 스터디 메이트를 찾을 수 있습니다.',
+    studyLog: '스터디 로그',
+    studyLogDesc: '처음부터 공부하며 기록하는 엔지니어링 학습 로그.',
+  },
+} as const;

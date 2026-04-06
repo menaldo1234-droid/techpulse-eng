@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root {
+  --accent: #6c5ce7;
+  --accent-hover: #5a4bd1;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(108, 92, 231, 0.2);
+  color: #6c5ce7;
+}
+
+/* Prose */
+.prose h2 { @apply text-2xl font-bold mt-10 mb-4 pb-2 border-b border-gray-200 dark:border-gray-800; }
+.prose h3 { @apply text-xl font-semibold mt-8 mb-3 text-[var(--accent)]; }
+.prose p { @apply mb-5 leading-relaxed; }
+.prose a { @apply text-[var(--accent)] underline underline-offset-4 hover:opacity-80 transition-opacity; }
+.prose blockquote { @apply border-l-4 border-[var(--accent)] bg-[var(--accent)]/5 rounded-r-lg px-5 py-3 my-6 text-gray-600 dark:text-gray-400; }
+.prose ul, .prose ol { @apply mb-5 pl-6; }
+.prose li { @apply mb-2; }
+.prose pre { @apply rounded-xl p-5 my-6 overflow-x-auto text-sm bg-[#282a36]! text-gray-100; }
+.prose code:not(pre code) { @apply bg-[var(--accent)]/10 text-[var(--accent)] px-1.5 py-0.5 rounded text-sm font-mono; }
+.prose table { @apply w-full border-collapse my-6 text-sm; }
+.prose thead { @apply bg-[var(--accent)]/5; }
+.prose th { @apply px-4 py-3 text-left font-bold text-xs uppercase tracking-wider text-[var(--accent)] border-b-2 border-gray-200 dark:border-gray-700; }
+.prose td { @apply px-4 py-3 border-b border-gray-100 dark:border-gray-800; }
+.prose tbody tr:hover { @apply bg-[var(--accent)]/5; }
+.prose img { @apply rounded-xl my-6; }
+.prose hr { @apply my-8 border-gray-200 dark:border-gray-800; }
