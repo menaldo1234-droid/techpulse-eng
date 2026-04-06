@@ -13,19 +13,19 @@ defaultContentLanguageInSubdir = false
     weight = 1
     languageCode = "en-us"
     [languages.en.params]
-      description = "AI, tech trends, and the future — explained fast."
+      description = "Engineer Study — learning real tech from scratch, documented as we go."
       [languages.en.params.homeInfoParams]
-        Title = "The Pulse of Modern Engineering"
-        Content = "Deep dives into AI, high-performance infrastructure, and the tools shaping the future of software."
+        Title = "Engineer Study"
+        Content = "Learning by doing. STM32, RTOS, PCB, embedded systems — studied from scratch, recorded on YouTube, and documented here."
     [[languages.en.menu.main]]
       identifier = "home"
       name = "Home"
       url = "/"
       weight = 10
     [[languages.en.menu.main]]
-      identifier = "blog"
-      name = "Blog"
-      url = "/posts/"
+      identifier = "study"
+      name = "Study"
+      url = "/study/"
       weight = 20
     [[languages.en.menu.main]]
       identifier = "radar"
@@ -43,19 +43,19 @@ defaultContentLanguageInSubdir = false
     weight = 2
     languageCode = "ko-kr"
     [languages.ko.params]
-      description = "AI, 테크 트렌드, 미래 기술 — 빠르고 핵심만."
+      description = "엔지니어 스터디 — 처음부터 공부하며 기록하는 진짜 엔지니어링."
       [languages.ko.params.homeInfoParams]
-        Title = "테크의 핵심을 빠르게"
-        Content = "AI, 고성능 인프라, 소프트웨어의 미래를 바꾸는 도구들. 쓸데없는 말 빼고 핵심만."
+        Title = "엔지니어 스터디"
+        Content = "직접 공부하며 기록합니다. STM32, RTOS, PCB, 임베디드 — 유튜브 영상 + 정리글로 함께 배워요."
     [[languages.ko.menu.main]]
       identifier = "home"
       name = "홈"
       url = "/ko/"
       weight = 10
     [[languages.ko.menu.main]]
-      identifier = "blog"
-      name = "블로그"
-      url = "/ko/posts/"
+      identifier = "study"
+      name = "스터디"
+      url = "/ko/study/"
       weight = 20
     [[languages.ko.menu.main]]
       identifier = "radar"
@@ -69,7 +69,7 @@ defaultContentLanguageInSubdir = false
       weight = 40
 
 [params]
-  mainSections = ["posts"]
+  mainSections = ["study", "posts"]
   env = "production"
   author = "Henry"
   ShowReadingTime = true
