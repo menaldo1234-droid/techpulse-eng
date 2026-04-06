@@ -9,24 +9,22 @@ ShowBreadCrumbs: false
 
 ## Hey, I'm Henry.
 
-I'm an engineer who can't stop reading changelogs.
+I'm an engineer who learns by building.
 
-TechBlips is where I process what I find — AI model updates, infrastructure patterns, developer tooling shifts, and the occasional piece of hardware that makes me rethink what's possible. No editorial team, no content strategy. Just things I genuinely think are worth understanding.
+TechBlips started as a tech blog, but I realized something: the internet doesn't need more AI-generated summaries. It needs real people documenting real learning.
 
-### What I write about
+### What this is now
 
-**AI & LLMs** — Model releases, capability shifts, and what they actually mean for building things. I try to skip the hype and get to the part that matters.
+**Engineer Study** — I pick a topic (STM32, RTOS, PCB design, embedded systems), study it from scratch, and document the entire process. Every session gets:
 
-**Infrastructure & Cloud** — The systems that keep software running at scale. Worth understanding even if it's not your day job.
+- A **YouTube video** of the study session
+- A **written summary** with key concepts, code, and diagrams
+- **Honest notes** on what confused me and how I figured it out
 
-**Developer Tools** — The ones that are quietly changing how teams build. Not the ones that just have good landing pages.
+### Why this format
 
-**Embedded & Hardware** — Underreported and underrated. The physical layer of the tech stack.
-
-### The format
-
-Short when the topic is simple. Long when it's not. I don't pad for word count.
+I'm not an expert teaching down. I'm an engineer learning in public. If you're studying the same topics, you'll find a study partner here — not a lecturer.
 
 ### Say hi
 
-Drop a comment on any post, or find me wherever engineers tend to congregate online.
+Drop a comment on YouTube or find me wherever engineers hang out.
