@@ -81,7 +81,8 @@ export default function Nav({ lang }: { lang: Locale }) {
       <nav className="sticky top-0 z-50 nav-glass">
         <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
           <Link href={`/${lang}`} className="hover:opacity-80 transition-opacity">
-            <img src="/logo-terminal.svg" alt="0xHenry" className="h-10" />
+            <img src="/logo-terminal-light.svg" alt="0xHenry" className="h-10 dark:hidden" />
+            <img src="/logo-terminal-dark.svg" alt="0xHenry" className="h-10 hidden dark:block" />
           </Link>
           <div className="flex items-center gap-6">
             {/* Nav links (desktop) */}
