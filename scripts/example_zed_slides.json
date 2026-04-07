@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "title": "ZED X Mini + Jetson: 30일간의 삽질 끝에 성공",
+    "date": "2026-04-10",
+    "pillar": "로봇공학",
+    "slug": "zed-x-mini-jetson-setup"
+  },
+  "slides": [
+    {
+      "type": "title",
+      "title": "ZED X Mini + Jetson",
+      "subtitle": "30일간의 삽질 끝에 성공",
+      "notes_ko": "안녕하세요, 로봇 엔지니어 헥세이치입니다.\nZED X Mini 스테레오 카메라를 Jetson에 연결하는 과정을 공유합니다.\n공식 문서에는 연결하고 SDK 설치하면 끝이라고 하는데, 저는 한 달 걸렸습니다.",
+      "notes_en": "Hi, I'm 0xH, a robotics engineer.\nToday I'll share how I connected a ZED X Mini stereo camera to a Jetson.\nThe official docs say just plug in and install the SDK. It took me 30 days."
+    },
+    {
+      "type": "toc",
+      "items": [
+        "GMSL2란? — USB와 뭐가 다른가",
+        "보드 3개 × JetPack 4개 — 조합 테스트",
+        "최종 동작 스택 공개"
+      ],
+      "notes_ko": "오늘 다룰 내용입니다.\n첫 번째, GMSL2가 뭔지, 왜 USB처럼 안 되는지.\n두 번째, 보드 3개와 JetPack 4개 버전을 조합 테스트한 과정.\n세 번째, 최종 동작하는 스택.",
+      "notes_en": "Here's what we'll cover.\nFirst, what GMSL2 is and why it's not like USB.\nSecond, testing 3 boards with 4 JetPack versions.\nThird, the final working stack."
+    },
+    {
+      "type": "content",
+      "section": "PART 1",
+      "title": "GMSL2란?",
+      "content": [
+        {
+          "type": "text",
+          "lines": [
+            {"text": "GMSL2 = Gigabit Multimedia Serial Link", "color": "teal", "bold": true},
+            "자동차용 고속 카메라 연결 프로토콜",
+            "USB처럼 플러그 앤 플레이가 아님"
+          ]
+        },
+        {
+          "type": "code",
+          "code": "USB 카메라:    PC ──USB──> 카메라    ← 바로 됨\nGMSL2 카메라:  Jetson ──CSI──> 디시리얼라이저 ──GMSL2──> 카메라"
+        },
+        {
+          "type": "text",
+          "lines": [
+            {"text": "보드 + JetPack + SDK + 드라이버 = 전부 맞아야 동작", "color": "warning", "bold": true},
+            {"text": "하나라도 안 맞으면? → 에러 없이 조용히 안 됨", "color": "error", "bold": false}
+          ]
+        }
+      ],
+      "notes_ko": "ZED X Mini는 일반 USB 카메라가 아닙니다.\nGMSL2라는 프로토콜을 사용합니다.\nGigabit Multimedia Serial Link의 약자인데, 원래 자동차 쪽에서 쓰는 고속 카메라 연결 방식입니다.\nUSB 카메라는 꽂으면 바로 되잖아요.\nGMSL2는 디시리얼라이저를 거쳐야 합니다.\n그래서 보드, JetPack, SDK 버전이 전부 맞아야 되는데,\n하나라도 안 맞으면 에러도 안 나오고 카메라가 그냥 없는 겁니다.\n이게 가장 힘든 부분이었습니다.",
+      "notes_en": "The ZED X Mini is not a regular USB camera.\nIt uses GMSL2 — Gigabit Multimedia Serial Link.\nOriginally designed for automotive high-speed camera connections.\nUSB cameras just work when you plug them in.\nGMSL2 needs a deserializer in between.\nSo the board, JetPack, and SDK versions must all match.\nIf anything's off, there's no error — the camera just silently doesn't exist.\nThat was the hardest part."
+    },
+    {
+      "type": "content",
+      "section": "시도 1",
+      "title": "reComputer — Seeed Studio",
+      "content": [
+        {
+          "type": "text",
+          "lines": [
+            "Jetson Orin NX 탑재, 인기 있는 보드",
+            {"text": "GMSL2 커넥터: FAKRA 방식", "color": "warning", "bold": false}
+          ]
+        }
+      ],
+      "notes_ko": "처음에 Seeed Studio의 reComputer를 사용했습니다.\nJetson Orin NX가 탑재된 보드인데, 꽤 인기 있는 제품입니다.\n이걸로 해보겠습니다.",
+      "notes_en": "I started with the Seeed Studio reComputer.\nIt has a Jetson Orin NX onboard — a pretty popular board.\nLet's try this one."
+    },
+    {
+      "type": "screen_recording",
+      "description": "JetPack 6.0 설치 → ZED SDK 설치 → zed-explorer 실행 → 실패",
+      "notes_ko": "JetPack 6.0을 설치하고, ZED SDK를 깔겠습니다.\n설치는 잘 됩니다. 에러 없이 끝나요.\n이제 zed-explorer를 실행하면...\n아무것도 안 뜹니다.\n카메라가 없다고 나옵니다.\n에러 메시지도 없습니다. 그냥 조용합니다.",
+      "notes_en": "Installing JetPack 6.0, then the ZED SDK.\nInstallation goes fine. No errors.\nNow running zed-explorer...\nNothing shows up.\nIt says no camera found.\nNo error messages. Just silence."
+    },
+    {
+      "type": "content",
+      "section": "시도 1 — 결과",
+      "title": "reComputer 실패 원인",
+      "content": [
+        {
+          "type": "badge",
+          "status": "❌ 실패 — FAKRA 커넥터와 ZED X Mini 핀 배열 비호환",
+          "color": "error"
+        },
+        {
+          "type": "text",
+          "lines": [
+            "커넥터가 물리적으로 맞아도 신호가 안 감",
+            {"text": "공식 문서 어디에도 안 써있음", "color": "error", "bold": true},
+            {"text": "교훈: 보드의 GMSL2 커넥터 타입을 먼저 확인할 것", "color": "teal", "bold": true}
+          ]
+        }
+      ],
+      "notes_ko": "원인을 찾아봤습니다.\nreComputer는 GMSL2 커넥터가 FAKRA 방식입니다.\nZED X Mini의 핀 배열과 호환이 안 됩니다.\n커넥터가 물리적으로는 꽂히는데, 신호가 안 가는 겁니다.\n이건 공식 문서 어디에도 안 써있었습니다.\n여기서 일주일을 날렸습니다.",
+      "notes_en": "I investigated the cause.\nThe reComputer uses FAKRA-style GMSL2 connectors.\nThey're not compatible with the ZED X Mini's pin layout.\nThe connector physically fits, but the signal doesn't go through.\nThis wasn't documented anywhere.\nLost a week here."
+    },
+    {
+      "type": "content",
+      "section": "시도 2",
+      "title": "Waveshare Orin NX — 22-pin CSI",
+      "content": [
+        {
+          "type": "text",
+          "lines": [
+            "Jetson Orin NX 탑재",
+            {"text": "22-pin CSI 네이티브 커넥터 ← 핵심!", "color": "success", "bold": true},
+            "ZED X Mini와 물리적으로 호환"
+          ]
+        }
+      ],
+      "notes_ko": "그래서 보드를 바꿨습니다.\nWaveshare Orin NX 보드입니다.\n중요한 건 22-pin CSI 네이티브 커넥터가 있다는 겁니다.\n이게 ZED X Mini와 물리적으로 호환됩니다.",
+      "notes_en": "So I switched boards.\nThe Waveshare Orin NX.\nThe key feature — it has a native 22-pin CSI connector.\nThis is physically compatible with the ZED X Mini."
+    },
+    {
+      "type": "screen_recording",
+      "description": "JetPack 6.1 → 실패 / JetPack 6.2 → 부분 성공 / JetPack 6.2.1 → 성공!",
+      "notes_ko": "JetPack 6.1로 시도합니다.\n설치 완료. zed-explorer 실행...\n이번에도 카메라가 안 잡힙니다.\ndmesg를 보면 디바이스 트리에 ZED 관련 엔트리가 없습니다.\n\nJetPack 6.2로 올려봅니다.\n이번엔 카메라가 잡히긴 합니다! 근데 프레임이 안 나옵니다.\n한 발짝 전진입니다.",
+      "notes_en": "Trying JetPack 6.1.\nInstallation done. Running zed-explorer...\nCamera still not detected.\ndmesg shows no ZED-related device tree entries.\n\nUpgrading to JetPack 6.2.\nThis time the camera appears! But no frames come through.\nOne step forward."
+    },
+    {
+      "type": "content",
+      "section": "시도 2 — 결과",
+      "title": "JetPack 버전별 결과",
+      "content": [
+        {
+          "type": "table",
+          "rows": [
+            ["JetPack", "L4T", "카메라 인식", "프레임 출력"],
+            ["6.0", "36.2.0", "❌", "❌"],
+            ["6.1", "36.3.0", "❌", "❌"],
+            ["6.2", "36.3.1", "✅", "❌"],
+            ["6.2.1", "36.4.0", "✅", "✅"]
+          ],
+          "col_widths": [2.5, 2.5, 3.2, 3.2]
+        },
+        {
+          "type": "text",
+          "lines": [
+            {"text": "ZED Link 1.4.0 → L4T 36.4.0 필요 → JetPack 6.2.1", "color": "teal", "bold": true}
+          ]
+        }
+      ],
+      "notes_ko": "정리하면 이렇습니다.\nJetPack 6.0, 6.1은 카메라 인식 자체가 안 됩니다.\n6.2는 인식은 되는데 프레임이 안 나옵니다.\n6.2.1에서 드디어 전부 동작합니다.\n이유는 ZED Link 1.4.0 드라이버가 L4T 36.4.0을 요구하는데,\n그게 JetPack 6.2.1에 대응하는 버전이기 때문입니다.\n이 표 하나 만드는 데 3주가 걸렸습니다.",
+      "notes_en": "Here's the summary.\nJetPack 6.0 and 6.1 — camera not even detected.\n6.2 — detected but no frames.\n6.2.1 — everything works.\nThe reason: ZED Link 1.4.0 requires L4T 36.4.0,\nwhich corresponds to JetPack 6.2.1.\nThis one table took three weeks to figure out."
+    },
+    {
+      "type": "content",
+      "section": "최종 해결",
+      "title": "✅ 최종 동작 스택",
+      "content": [
+        {
+          "type": "table",
+          "rows": [
+            ["항목", "버전"],
+            ["보드", "Waveshare Orin NX (22-pin CSI)"],
+            ["JetPack", "6.2.1 (L4T 36.4.0)"],
+            ["ZED SDK", "5.2.1"],
+            ["ZED Link", "1.4.0"]
+          ],
+          "col_widths": [4, 7.4]
+        },
+        {
+          "type": "code",
+          "code": "$ sudo apt install zed-link\n$ sudo apt install zed-sdk\n$ zed-explorer",
+          "font_size": 20
+        }
+      ],
+      "notes_ko": "최종 동작하는 조합은 이겁니다.\nWaveshare 보드에 22-pin CSI 커넥터.\nJetPack 6.2.1. ZED SDK 5.2.1. ZED Link 1.4.0.\n설치는 딱 세 줄입니다.\nsudo apt install zed-link, sudo apt install zed-sdk, zed-explorer.",
+      "notes_en": "Here's the final working combination.\nWaveshare board with 22-pin CSI connector.\nJetPack 6.2.1. ZED SDK 5.2.1. ZED Link 1.4.0.\nInstallation is just three commands."
+    },
+    {
+      "type": "content",
+      "section": "정리",
+      "title": "📌 핵심 정리",
+      "content": [
+        {
+          "type": "text",
+          "lines": [
+            {"text": "1. 22-pin CSI 네이티브 보드를 쓸 것", "color": "success", "bold": true},
+            "   FAKRA 방식 보드는 ZED X Mini와 비호환",
+            "",
+            {"text": "2. JetPack + ZED Link 버전을 정확히 맞출 것", "color": "success", "bold": true},
+            "   현재: JetPack 6.2.1 + ZED Link 1.4.0",
+            "",
+            {"text": "3. 이 카메라의 실패 모드는 \"침묵\"", "color": "error", "bold": true},
+            "   에러가 안 나오므로 버전 조합을 체계적으로 테스트"
+          ]
+        }
+      ],
+      "notes_ko": "오늘 내용을 정리하면:\n첫 번째, 22-pin CSI 네이티브 보드를 쓰세요. FAKRA 방식은 안 됩니다.\n두 번째, JetPack과 ZED Link 드라이버 버전이 정확히 맞아야 합니다. 현재 기준 JetPack 6.2.1과 ZED Link 1.4.0입니다.\n세 번째, 이 카메라의 실패 모드는 침묵입니다. 에러가 안 나오기 때문에, 버전 조합을 체계적으로 테스트하는 수밖에 없습니다.",
+      "notes_en": "To summarize:\nFirst, use a board with native 22-pin CSI. FAKRA-type won't work.\nSecond, JetPack and ZED Link versions must match exactly. Currently JetPack 6.2.1 and ZED Link 1.4.0.\nThird, the failure mode is silence. No errors, so you have to systematically test version combinations."
+    },
+    {
+      "type": "outro",
+      "blog_url": "techblips.com/study/zed-x-mini-jetson-setup",
+      "next_topic": "ZED SDK — Depth Map 추출 & 포인트 클라우드",
+      "notes_ko": "전체 트러블슈팅 과정과 코드는 StackPulse 블로그에 정리했습니다.\n링크는 설명란에 있습니다.\n다음에는 ZED SDK로 depth map을 추출하고 포인트 클라우드를 만드는 걸 해보겠습니다.\n도움이 됐다면 구독 부탁드립니다.\n헥세이치였습니다.",
+      "notes_en": "Full troubleshooting details and code are on the StackPulse blog.\nLink in the description.\nNext time, I'll extract depth maps and create point clouds with the ZED SDK.\nIf this helped, please subscribe.\nThis was 0xH."
+    }
+  ]
+}
