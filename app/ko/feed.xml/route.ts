@@ -22,7 +22,7 @@ export async function GET() {
   <channel>
     <title>0xHenry - 엔지니어 스터디</title>
     <link>${BASE_URL}/ko</link>
-    <description>직접 공부하며 기록합니다. STM32, RTOS, PCB, 임베디드 — 유튜브 영상 + 정리글로 함께 배워요.</description>
+    <description>모르는 거 직접 부딪혀보고 기록하는 공간. STM32, RTOS, PCB, 임베디드 — 삽질 과정 전부 공개.</description>
     <language>ko</language>
     <atom:link href="${BASE_URL}/ko/feed.xml" rel="self" type="application/rss+xml"/>
 ${items}
