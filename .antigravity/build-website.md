@@ -1,253 +1,235 @@
-# Antigravity: 0xHenry 웹사이트 완전 리빌드
+# Antigravity: 0xHenry.dev 디자인 시스템 가이드
 
 ## 매 세션 시작 시 반드시 먼저 입력:
 ```
-이 레포는 0xhenry.dev — Hugo + PaperMod 기반 테크 블로그.
+이 레포는 0xhenry.dev — Next.js 16 + Tailwind CSS 4 엔지니어 스터디 블로그.
 GEMINI.md 파일을 먼저 읽고 규칙을 따라.
 main 브랜치에서 작업. 완료되면 commit + push.
-Cloudflare Pages가 main push 감지해서 자동 배포.
+Vercel이 main push 감지해서 자동 배포.
 ```
 
 ---
 
-# SESSION 1: 홈페이지 완전 리디자인
-
-아래를 AG에 통째로 복붙:
+# 🎨 SESSION 1: UI/UX 마이크로 인터랙션 + 레이아웃 최적화
 
 ```
-0xhenry.dev 홈페이지를 Vercel 블로그, Linear 블로그 수준으로 완전히 리디자인해줘.
+0xhenry.dev의 UI/UX를 Linear, Vercel 수준으로 끌어올려줘.
 
 먼저 GEMINI.md를 읽어.
 
 ## 현재 상태
-- PaperMod 기본 테마 + custom.css(713줄) 으로 커스텀된 상태
-- 홈페이지는 PaperMod의 homeInfoParams로 히어로 텍스트만 표시
-- 포스트 리스트는 PaperMod 기본 리스트 형태
-- 네비게이션에 이모지 사용 중 (촌스러움)
+- Next.js 16 + Tailwind CSS 4
+- globals.css에 .card-hover, .nav-glass, .prose 시스템 있음
+- 다크 모드 지원 (class 기반)
+- 모바일 반응형 구현됨
 
-## 수정 가능한 파일들
-- assets/css/extended/custom.css — 메인 CSS (전부 다시 써도 됨)
-- layouts/_default/single.html — 포스트 상세 페이지 (이미 오버라이드됨)
-- layouts/partials/extend_head.html — head 확장
-- layouts/partials/footer.html — 푸터
-- layouts/partials/newsletter.html — 뉴스레터 폼
-- layouts/partials/author-card.html — 저자 카드
-- hugo.toml — Hugo 설정, 네비게이션 메뉴
+## 수정 가능한 파일
+- app/globals.css — 전역 스타일 (카드, 타이포, prose)
+- app/[lang]/page.tsx — 홈페이지 (히어로 + 포스트 리스트)
+- app/[lang]/study/page.tsx — 스터디 목록
+- app/[lang]/study/[slug]/page.tsx — 포스트 상세
+- components/Nav.tsx — 네비게이션
+- components/SearchModal.tsx — 검색 모달
 
 ## 절대 금지
-- themes/ 폴더 절대 수정 금지
-- PaperMod 테마 파일 건들지 마
-- {{ define "head" }} 블록 사용 금지 (PaperMod에서 안 됨)
-- head 확장은 반드시 layouts/partials/extend_head.html 사용
+- app/api/ 수정 금지
+- prisma/ 수정 금지
+- lib/posts.ts 로직 변경 금지
+- 새 npm 패키지 설치 금지
 
 ## 해야 할 것
 
-### 1. 네비게이션 메뉴 (hugo.toml)
-- 이모지 전부 제거
-- 메뉴 정리: Home | Blog | Radar | About (4개만)
-- AI, Dev Tools, Trending 카테고리 직링크 제거
+### 1. 카드 인터랙션 고도화
+- .card-hover에 border-color 트랜지션 추가
+- 호버 시 accent glow 효과 강화
+- 카드 간 stagger 애니메이션 (CSS @keyframes)
 
-### 2. 홈페이지 히어로 섹션
-- hugo.toml의 homeInfoParams 수정
-- 또는 layouts/index.html 오버라이드 생성
-- 큰 타이틀 + 서브텍스트 + CTA 버튼 2개 (Latest Posts, Tech Radar)
-- 서브틀한 그라데이션 배경 (현재 것 개선 또는 교체)
-- 프로페셔널하고 임팩트 있게
+### 2. 네비게이션 리파인
+- 스크롤 시 nav 배경 opacity 변화
+- 현재 페이지 active 인디케이터
+- 모바일 메뉴 열릴 때 부드러운 backdrop
 
-### 3. 포스트 카드 리스트
-- 카드 그리드 레이아웃 (데스크톱 2컬럼, 모바일 1컬럼)
-- 카드 호버 시 살짝 올라가면서 그림자 (현재 것 개선)
-- 카테고리 뱃지 색상 구분
-- 읽기 시간, 날짜 표시 개선
-- 깔끔한 간격과 정렬
+### 3. 히어로 섹션
+- 타이틀 그라데이션 텍스트 효과
+- 서브텍스트 fade-in 애니메이션
+- CTA 버튼 hover pulse
 
-### 4. 다크모드 완벽 대응
-- custom.css의 [data-theme=dark] 섹션 보완
-- 카드, 히어로, 코드블록, 네비게이션 전부 다크모드 대응
-- 다크모드 전환 시 깜빡임 없이 부드럽게
+### 4. 포스트 상세 페이지
+- 스크롤 프로그레스 바 (상단)
+- 이미지 lazy loading skeleton
+- 코드 블록 복사 버튼
 
-### 5. 모바일 반응형 (860px 이하)
-- 카드 1컬럼
-- 네비게이션 모바일 메뉴 개선
-- 히어로 섹션 폰트 축소
-- 전체적인 패딩/마진 조정
-
-### 6. 푸터 개선
-- 저작권 + 간단한 링크 (Home, Radar, About)
-- 뉴스레터 폼은 유지하되 스타일 개선
-
-### 디자인 참고
-- 색상: #6c5ce7 (보라), #0ea5e9 (파랑), #f59e0b (노랑), #10b981 (초록)
-- 폰트: Inter (이미 로드됨)
-- 느낌: 미니멀, 클린, 화이트스페이스 충분히, 프로페셔널
-
-작업 완료 후 commit + push 해줘.
-```
-
----
-
-# SESSION 2: 포스트 상세 페이지 + 타이포그래피
-
-```
-0xhenry.dev의 블로그 포스트 상세 페이지를 리디자인해줘.
-
-먼저 GEMINI.md를 읽어.
-
-## 수정 파일
-- layouts/_default/single.html — 이미 오버라이드되어 있음
-- assets/css/extended/custom.css — .post-content 관련 섹션
-- layouts/partials/author-card.html — 인라인 스타일 → CSS 클래스로 교체
-
-## 해야 할 것
-
-### 1. 본문 레이아웃
-- max-width: 720px, 중앙 정렬
-- line-height: 1.8
-- 충분한 문단 간격
-
-### 2. 코드 블록
-- 다크 배경 (#1e1e2e 계열)
-- 라운드 코너 12px
-- 상단에 언어 라벨 표시
-- 복사 버튼 위치/스타일 개선
-- 인라인 코드는 accent 배경
-
-### 3. 타이포그래피
-- h2: 볼드, 하단 보더, 위 여백 충분히
-- h3: accent 색상
-- blockquote: 왼쪽 accent 보더 + 연한 배경
-- 리스트 아이템 간격
-- 링크: accent 색상 + 밑줄 호버
-
-### 4. 이미지
-- max-width: 100%
-- border-radius: 8px
-- 캡션 스타일 (figcaption)
-
-### 5. author-card.html 개선
-- 인라인 스타일 제거 → CSS 클래스 사용
-- 아바타: 그라데이션 원형 배경에 "H"
-- 이름 + 한 줄 소개
-- 호버 시 약간의 그림자 추가
-
-### 6. 포스트 하단
-- 태그 뱃지 스타일 유지/개선
-- 이전/다음 글 네비게이션 카드 스타일
-- 공유 버튼 아이콘 정리
-
-### 7. 다크모드 + 모바일 대응
-- 코드 블록, 인용문, 카드 전부 다크모드 대응
-- 모바일에서 코드 블록 가로 스크롤
+### 5. 다크 모드 + 모바일
+- 모든 변경사항 다크 모드 대응
+- 640px 이하 터치 인터랙션 최적화
 
 commit + push
 ```
 
 ---
 
-# SESSION 3: 레이더 페이지 비주얼 업그레이드
+# 🎥 SESSION 2: 유튜브 & 미디어 에셋 생성
 
 ```
-0xhenry.dev/radar/current/ 레이더 페이지를 시각적으로 업그레이드해줘.
+0xHenry 유튜브 채널용 브랜드 에셋을 생성해줘.
 
 먼저 GEMINI.md를 읽어.
 
-## 수정 파일
-- static/css/radar.css — 레이더 전용 CSS
-- static/js/radar.js — D3.js 시각화 (조심해서 수정)
-- layouts/radar/single.html — 레이더 페이지 레이아웃
+## 브랜드 기준
+- 메인 컬러: #0d9488 (Cyber Teal)
+- 보조 컬러: #0f766e (darker), #10b981 (lighter green)
+- 배경: #030712 (dark) / #ffffff (light)
+- 폰트: Inter (Bold for titles, Regular for body)
+- 로고: public/logo.svg (0x Henry.dev 배지)
 
-## 현재 상태
-- D3.js로 원형 레이더 그려짐
-- 블립(점) 30개, 4 쿼드런트, 4 링
-- 블립 클릭 시 상세 페이지 이동
-- 사이드바에 블립 리스트
+## 생성할 파일
 
-## 해야 할 것
+### 1. 썸네일 템플릿 (1280x720)
+- public/images/youtube/thumb-template-dark.svg
+- 다크 배경 + 서킷 패턴 + 텍스트 영역
+- 0xHenry 로고 워터마크 (우하단)
 
-### 1. 블립 인터랙션
-- 호버 시 툴팁 (이름 + 카테고리 + 링)
-- 호버 시 블립 약간 커지는 효과
-- 클릭 피드백
+### 2. 로워 서드 (Lower Third)
+- public/images/youtube/lower-third.svg
+- 투명 배경, 하단 좌측 이름 표시
+- accent 컬러 언더라인
 
-### 2. 사이드바
-- 블립 리스트를 카드 형태로
-- 쿼드런트별 필터 버튼 (컬러 매칭)
-- 링별 필터 (Adopt/Trial/Assess/Hold)
+### 3. 포인트 아이콘 세트
+- public/images/youtube/icons/check.svg
+- public/images/youtube/icons/warning.svg
+- public/images/youtube/icons/info.svg
+- public/images/youtube/icons/arrow.svg
+- 모두 accent 컬러, 투명 배경
 
-### 3. 쿼드런트 라벨
-- 가독성 높이기
-- 반투명 배경 + 볼드
-
-### 4. 전체 레이아웃
-- 레이더 + 사이드바 비율 조정 (7:3)
-- 충분한 패딩
-- 상단에 레이더 설명 텍스트
-
-### 5. 모바일
-- 레이더 크기 자동 조절
-- 모바일에서 사이드바를 레이더 아래로
-
-### 6. 다크모드
-- 쿼드런트 배경색 다크 대응
-- 블립 색상 다크모드 가시성
-- 보더, 라벨 전부 대응
+### 4. 인트로/아웃트로 카드
+- public/images/youtube/intro-card.svg
+- public/images/youtube/outro-card.svg
+- 0xHenry 로고 + Engineer Study 텍스트
 
 commit + push
 ```
 
 ---
 
-# SESSION 4: About 페이지 + 전체 마감
+# 💎 SESSION 3: 브랜드 아이덴티티 정비
 
 ```
-0xhenry.dev의 About 페이지와 사이트 전체 마감 작업을 해줘.
+0xHenry 브랜드 시스템을 정비해줘.
 
 먼저 GEMINI.md를 읽어.
 
 ## 해야 할 것
 
-### 1. About 페이지 (content/about.md)
-- 현재 텍스트 개선 (더 프로페셔널하게)
-- 0xHenry 소개: AI & 테크 트렌드를 빠르게 전달하는 미디어
-- Henry 소개: 간결하게
-- 사이트 목적과 가치
-- Contact 섹션
+### 1. 컬러 팔레트 확장
+- app/globals.css에 CSS 변수 추가:
+  --accent: #0d9488
+  --accent-hover: #0f766e
+  --accent-light: #10b981
+  --accent-glow: rgba(13, 148, 136, 0.15)
+  --bg-primary / --bg-secondary / --bg-tertiary
 
-### 2. 검색 페이지 스타일
-- #searchbox 스타일 개선
-- 검색 결과 카드 스타일 포스트 카드와 통일
+### 2. 타이포그래피 감사
+- heading 자간/행간 검토
+- body 텍스트 16px 기준 가독성
+- 코드 블록 폰트 사이즈 통일
+- 모바일 폰트 스케일링
 
-### 3. 카테고리/태그 페이지
-- .terms-tags 스타일 개선
-- 카테고리별 색상 구분
-- 포스트 수 뱃지 개선
+### 3. 로고 베리에이션
+- public/images/brand/logo-dark.svg (다크 배경용)
+- public/images/brand/logo-light.svg (라이트 배경용)
+- public/images/brand/logo-mono.svg (단색)
+- public/images/brand/logo-icon-only.svg (0xH 아이콘만)
 
-### 4. 404 페이지
-- layouts/404.html 생성 (없으면)
-- 심플한 디자인 + 홈으로 돌아가기 버튼
-
-### 5. 스크롤 프로그레스 바
-- 현재 .progress-bar CSS 개선
-- 모든 브라우저 호환
-
-### 6. 전체 QA
-- 모든 페이지 다크모드 확인
-- 모든 페이지 모바일 확인
-- 불필요한 CSS 정리
-- 성능 체크 (불필요한 animation 제거)
+### 4. OG 이미지 템플릿
+- public/og-default.png 개선
+- 포스트별 동적 OG는 나중에 (지금은 기본만)
 
 commit + push
 ```
 
 ---
 
-# 세션 순서
+# 📝 SESSION 4: 콘텐츠 비주얼 퀄리티
 
-| 순서 | 내용 | 예상 시간 |
-|------|------|----------|
-| 1 | 홈페이지 + 네비 + 전체 레이아웃 | 3-5시간 |
-| 2 | 포스트 상세 + 타이포그래피 | 2-3시간 |
-| 3 | 레이더 페이지 비주얼 | 2-3시간 |
-| 4 | About + 전체 마감 | 2-3시간 |
+```
+블로그 콘텐츠의 비주얼 퀄리티를 올려줘.
 
-AG 세션이 5시간이니까 하루 1세션씩, 4일이면 완성.
+먼저 GEMINI.md를 읽어.
+
+## 해야 할 것
+
+### 1. 코드 블록 미학
+- 문법 강조 컬러 팔레트 정의 (Dracula 베이스)
+- 코드 블록 상단 언어 라벨 + 파일명
+- 라인 넘버 옵션
+- app/globals.css .prose pre 스타일 개선
+
+### 2. 포스트 헤더 아트
+- 각 포스트 주제에 맞는 기하학적 SVG 헤더
+- content/*/study/ 포스트에 통일된 헤더 스타일
+- public/images/study/headers/ 디렉토리에 저장
+
+### 3. 테이블 스타일 개선
+- 스트라이프 행 (even/odd)
+- 호버 하이라이트
+- 모바일 가로 스크롤 + 그림자 힌트
+
+### 4. 인용문 + 팁 박스
+- blockquote 스타일 개선 (아이콘 추가)
+- TIP / WARNING / NOTE 커스텀 블록 스타일
+- 다크 모드 대응
+
+### 5. 콘텐츠 폴리싱
+- AI가 쓴 느낌 나는 문장 다듬기
+- 두괄식 구조 확인 (결론 먼저)
+- 단락 간격 + 소제목 위계 정리
+
+commit + push
+```
+
+---
+
+# 🛠️ SESSION 5: 주간 유지보수 (매주 반복)
+
+```
+GEMINI.md 먼저 읽어.
+main 브랜치. commit + push.
+
+매주 반복 작업:
+
+### 1. 디자인 폴리시
+- globals.css 호버/간격/그림자 미세 조정
+- 다크 모드 깨진 부분 수정
+- 모바일 레이아웃 확인 (640px 이하)
+
+### 2. 콘텐츠 리뷰
+- content/en/study/에서 포스트 퀄리티 개선
+- content/ko/study/ 대응하는 한국어 포스트도 같이 수정
+- AI 느낌 문장 제거
+- 새 포스트 생성 금지
+
+### 3. 브랜드 일관성
+- 로고, 파비콘, OG 이미지 정상 확인
+- 컬러 변수 사용 일관성
+- 폰트 렌더링 확인
+
+→ commit + push
+끝나면: "주간 유지보수 완료."
+```
+
+---
+
+# 세션 순서 및 활용 가이드
+
+| 세션 | 용도 | 빈도 |
+|------|------|------|
+| 1 | UI/UX 마이크로 인터랙션 | 초기 1회 + 분기별 |
+| 2 | 유튜브 에셋 생성 | 영상 업로드 전 |
+| 3 | 브랜드 정비 | 초기 1회 + 분기별 |
+| 4 | 콘텐츠 비주얼 | 포스트 작성 후 |
+| 5 | 주간 유지보수 | 매주 |
+
+## 활용 팁
+- "Linear처럼 깔끔하게" 같은 의도(Intent) 기반 지시가 효과적
+- 구체적 파일 + 스타일 레퍼런스를 함께 주면 정확도 상승
+- 한 세션에 TASK 1개씩 집중 → 품질 유지
